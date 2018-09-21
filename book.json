@@ -1,5 +1,5 @@
 {
-    "title": "Statistics and More",
+    "title": "Statistics and Beyond",
     "plugins": [
         "mathjax",
         "image-captions",
@@ -14,7 +14,7 @@
 
     "pluginsConfig": {
         "image-captions": {
-            "caption": "图 _PAGE_IMAGE_NUMBER_. _CAPTION_",
+            "caption": "Figure _PAGE_IMAGE_NUMBER_. _CAPTION_",
             "align": "right"
         },
         "github": {

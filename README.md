@@ -2,4 +2,6 @@
 
 Some pieces of knowledges of statistics and more.
 
-The Gitbook pages version is [here](https://zizouhe.github.io/stats-and-beyond-pages/).
+The Github pages version is [here](https://zizouhe.github.io/stats-and-beyond-pages/).
+
+Due to some bugs of Github pages, you need to ***refresh the note page*** if it contains math exprssions.
