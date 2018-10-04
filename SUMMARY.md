@@ -6,6 +6,8 @@
 	* [Eigenvalue Inequalities](./contents/eigen_inequ.md)
 	* [Other Topics in Matrix Analysis](./contents/other_matrix.md)
 * [Computational Tricks](./contents/trick.md)
+* [Linear Methods](./contents/linear.md)
+	* [Lasso](./contents/lasso.md)
 * [Inequalities](./contents/inequality.md)
 * [Miscellaneous Topics](./contents/miscell.md)
 * [Bayesian Statistics](./contents/bayes.md)

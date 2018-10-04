@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Inequalities · Statistics and Beyond</title>
+        <title>Linear Methods · Statistics and Beyond</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -70,10 +70,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="miscell.html" />
+    <link rel="next" href="lasso.html" />
     
     
-    <link rel="prev" href="lasso.html" />
+    <link rel="prev" href="trick.html" />
     
 
     <style>
@@ -197,7 +197,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="linear.html">
+        <li class="chapter active" data-level="1.4" data-path="linear.html">
             
                 <a href="linear.html">
             
@@ -229,7 +229,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="inequality.html">
+        <li class="chapter " data-level="1.5" data-path="inequality.html">
             
                 <a href="inequality.html">
             
@@ -317,7 +317,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Inequalities</a>
+        <a href=".." >Linear Methods</a>
     </h1>
 </div>
 
@@ -332,37 +332,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#inequalities"><b> </b>Inequalities</a></li><ul><li><span class="title-icon "></span><a href="#jensens-inequality"><b>1. </b>Jensen&apos;s Inequality</a></li><li><span class="title-icon "></span><a href="#hddotmathrmolders-inequality"><b>2. </b>H\ddot{\mathrm{o}}lder&apos;s Inequality</a></li><li><span class="title-icon "></span><a href="#youngs-inequality"><b>3. </b>Young&apos;s Inequality</a></li><li><span class="title-icon "></span><a href="#data-processing-inequality"><b>4. </b>data processing inequality</a></li></ul></ul></div><a href="#inequalities" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="inequalities"><a name="inequalities" class="anchor-navigation-ex-anchor" href="#inequalities"><i class="fa fa-link" aria-hidden="true"></i></a> Inequalities</h1>
-<h2 id="jensens-inequality"><a name="jensens-inequality" class="anchor-navigation-ex-anchor" href="#jensens-inequality"><i class="fa fa-link" aria-hidden="true"></i></a>1. Jensen&apos;s Inequality</h2>
-<p>If <script type="math/tex; ">\varphi(\cdot)</script> is convex, then</p>
-<ul>
-<li>For any <script type="math/tex; ">x_1, x_2</script> and <script type="math/tex; ">t \in [0,1]</script></li>
-</ul>
-<p><script type="math/tex; mode=display">
-\varphi(t x_1 + (1-t)x_2) \leq t \varphi(x_1) + (1-t)\varphi(x_2)
-</script></p>
-<ul>
-<li>If <script type="math/tex; ">X</script> is a random variable</li>
-</ul>
-<p><script type="math/tex; mode=display">
-\varphi(\mathbb{E}[X]) \leq \mathbb{E}[\varphi(X)]
-</script></p>
-<h2 id="hddotmathrmolders-inequality"><a name="hddotmathrmolders-inequality" class="anchor-navigation-ex-anchor" href="#hddotmathrmolders-inequality"><i class="fa fa-link" aria-hidden="true"></i></a>2. H\ddot{\mathrm{o}}lder&apos;s Inequality</h2>
-<p><script type="math/tex; ">p, q \in [1, \infty]</script> with <script type="math/tex; ">\frac{1}{p} + \frac{1}{q} = 1</script>, then</p>
-<p><script type="math/tex; mode=display">
-\|f g\| \leq \|f\|_p \|g\|_q
-</script></p>
-<p>Also, for random variables <script type="math/tex; ">X ,Y</script></p>
-<p><script type="math/tex; mode=display">
-\mathbb{E}\left[ |XY | \right] \leq \left(\mathbb{E}[|X|^p]\right)^{\frac{1}{p}} \left(\mathbb{E}[|Y|^q]\right)^{\frac{1}{q}}
-</script> </p>
-<p><strong><em>Note that you can choose <script type="math/tex; ">p = 1</script> and <script type="math/tex; ">q = \infty</script>.</em></strong></p>
-<h2 id="youngs-inequality"><a name="youngs-inequality" class="anchor-navigation-ex-anchor" href="#youngs-inequality"><i class="fa fa-link" aria-hidden="true"></i></a>3. Young&apos;s Inequality</h2>
-<p><script type="math/tex; ">p, q > 0</script>, <script type="math/tex; ">a, b \geq 0</script> with <script type="math/tex; ">\frac{1}{p} + \frac{1}{q} = 1</script>, then</p>
-<p><script type="math/tex; mode=display">
-a b \leq \frac{a^p}{p} + \frac{b^q}{q}
-</script></p>
-<h2 id="data-processing-inequality"><a name="data-processing-inequality" class="anchor-navigation-ex-anchor" href="#data-processing-inequality"><i class="fa fa-link" aria-hidden="true"></i></a>4. data processing inequality</h2>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#linear-methods"><b> </b>Linear Methods</a></li></ul></div><a href="#linear-methods" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="linear-methods"><a name="linear-methods" class="anchor-navigation-ex-anchor" href="#linear-methods"><i class="fa fa-link" aria-hidden="true"></i></a> Linear Methods</h1>
 
                                 
                                 </section>
@@ -390,12 +360,12 @@ a b \leq \frac{a^p}{p} + \frac{b^q}{q}
 
             
                 
-                <a href="lasso.html" class="navigation navigation-prev " aria-label="Previous page: Lasso">
+                <a href="trick.html" class="navigation navigation-prev " aria-label="Previous page: Computational Tricks">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="miscell.html" class="navigation navigation-next " aria-label="Next page: Miscellaneous Topics">
+                <a href="lasso.html" class="navigation navigation-next " aria-label="Next page: Lasso">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -406,7 +376,7 @@ a b \leq \frac{a^p}{p} + \frac{b^q}{q}
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Inequalities","level":"1.5","depth":1,"next":{"title":"Miscellaneous Topics","level":"1.6","depth":1,"path":"contents/miscell.md","ref":"./contents/miscell.md","articles":[]},"previous":{"title":"Lasso","level":"1.4.1","depth":2,"path":"contents/lasso.md","ref":"./contents/lasso.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/inequality.md","mtime":"2018-09-22T00:50:33.664Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T02:23:29.577Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Linear Methods","level":"1.4","depth":1,"next":{"title":"Lasso","level":"1.4.1","depth":2,"path":"contents/lasso.md","ref":"./contents/lasso.md","articles":[]},"previous":{"title":"Computational Tricks","level":"1.3","depth":1,"path":"contents/trick.md","ref":"./contents/trick.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/linear.md","mtime":"2018-10-04T02:16:41.678Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-04T02:23:29.577Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

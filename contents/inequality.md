@@ -39,3 +39,5 @@ $$p, q > 0$$, $$a, b \geq 0$$ with $$\frac{1}{p} + \frac{1}{q} = 1$$, then
 $$
 a b \leq \frac{a^p}{p} + \frac{b^q}{q}
 $$
+
+## data processing inequality

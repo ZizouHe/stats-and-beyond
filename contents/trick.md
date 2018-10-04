@@ -67,6 +67,14 @@ $$
 \lim_{x \rightarrow \infty} \left(1 + \frac{1}{x}\right)^x = e
 $$
 
+- $$\sqrt{1 - x}$$:
+
+$$
+\sqrt{1 - x} \leq 1 - \frac{x}{2}
+$$
+
+for $$x \in [0,1]$$. (can be used in probability)
+
 ## 3. Union bound
 
 Since 
