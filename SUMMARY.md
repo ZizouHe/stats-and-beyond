@@ -8,6 +8,8 @@
 * [Computational Tricks](./contents/trick.md)
 * [Linear Methods](./contents/linear.md)
 	* [Lasso](./contents/lasso.md)
+* [Optimization Methods](./contents/optimization.md)
+	* [Stochastic Optimization](./contents/stoc_opt.md)
 * [Inequalities](./contents/inequality.md)
 * [Miscellaneous Topics](./contents/miscell.md)
 * [Bayesian Statistics](./contents/bayes.md)
