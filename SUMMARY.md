@@ -14,4 +14,7 @@
 * [Miscellaneous Topics](./contents/miscell.md)
 * [Bayesian Statistics](./contents/bayes.md)
 	* [Variational Inference](./contents/VI.md)
-
+* [Principle Component Analysis](./contents/PCA.md)
+	* [Probabilistic PCA](./contents/PPCA.md)
+* [General Machine Learning](./contents/ML.md)
+	* [Expectation-maximization](./contents/EM.md)
