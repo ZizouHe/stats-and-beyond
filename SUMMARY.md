@@ -16,5 +16,6 @@
 	* [Variational Inference](./contents/VI.md)
 * [Principle Component Analysis](./contents/PCA.md)
 	* [Probabilistic PCA](./contents/PPCA.md)
+	* [Factor Analysis](./contents/FA.md)
 * [General Machine Learning](./contents/ML.md)
 	* [Expectation-maximization](./contents/EM.md)
