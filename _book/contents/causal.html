@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Other Topics in Matrix Analysis · Statistics and Beyond</title>
+        <title>Causal Inference · Statistics and Beyond</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -70,10 +70,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="optimization.html" />
+    <link rel="next" href="trick.html" />
     
     
-    <link rel="prev" href="eigen_inequ.html" />
+    <link rel="prev" href="VI.html" />
     
 
     <style>
@@ -158,7 +158,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="causal.html">
+        <li class="chapter active" data-level="1.3" data-path="causal.html">
             
                 <a href="causal.html">
             
@@ -346,7 +346,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.3" data-path="other_matrix.html">
+        <li class="chapter " data-level="1.9.3" data-path="other_matrix.html">
             
                 <a href="other_matrix.html">
             
@@ -484,7 +484,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Other Topics in Matrix Analysis</a>
+        <a href=".." >Causal Inference</a>
     </h1>
 </div>
 
@@ -499,49 +499,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#other-topics-in-matrix-analysis"><b> </b>Other Topics in Matrix Analysis</a></li><ul><li><span class="title-icon "></span><a href="#courant-mini-max-principle"><b>1. </b>Courant Mini-max Principle</a></li><li><span class="title-icon "></span><a href="#sin-theta-distance-between-subspaces"><b>2. </b>\sin \Theta Distance between Subspaces</a></li><li><span class="title-icon "></span><a href="#golden-thompson-inequality"><b>3. </b>Golden-Thompson inequality</a></li></ul></ul></div><a href="#other-topics-in-matrix-analysis" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="other-topics-in-matrix-analysis"><a name="other-topics-in-matrix-analysis" class="anchor-navigation-ex-anchor" href="#other-topics-in-matrix-analysis"><i class="fa fa-link" aria-hidden="true"></i></a> Other Topics in Matrix Analysis</h1>
-<h2 id="courant-mini-max-principle"><a name="courant-mini-max-principle" class="anchor-navigation-ex-anchor" href="#courant-mini-max-principle"><i class="fa fa-link" aria-hidden="true"></i></a>1. Courant Mini-max Principle</h2>
-<p>Let <script type="math/tex; ">A</script> be a n &#xD7; n Hermitian matrix with eigen values <script type="math/tex; ">\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n</script>. Define </p>
-<p><script type="math/tex; mode=display">
-R_A(x) = \frac{\langle Ax, x\rangle}{\langle x, x\rangle}
-</script></p>
-<p>The Mini-max principle states that</p>
-<p><script type="math/tex; mode=display">
-\lambda_k = \min_{U} \left\{\max_x \left\{ R_A(x) | x \in U \; \text{and} \; x \neq 0 \right\} | \text{dim}(U) = k\right\}
-</script></p>
-<p>also,</p>
-<p><script type="math/tex; mode=display">
-\lambda_k = \max_{U} \left\{\min_x \left\{ R_A(x) | x \in U \; \text{and} \; x \neq 0 \right\} | \text{dim}(U) = n - k + 1\right\}
-</script></p>
-<p>Therefore, one quick conclusion can be made:</p>
-<p><script type="math/tex; mode=display">
-\lambda_1 \leq R_A(x) \leq \lambda_n, \quad \forall x \in \mathbb{C}^n \backslash\{0\}
-</script></p>
-<h2 id="sin-theta-distance-between-subspaces"><a name="sin-theta-distance-between-subspaces" class="anchor-navigation-ex-anchor" href="#sin-theta-distance-between-subspaces"><i class="fa fa-link" aria-hidden="true"></i></a>2. \sin \Theta Distance between Subspaces</h2>
-<p>To define a notion of distance between subspaces spanned by two sets of vectors. This can be done through the idea of principal angles: if <script type="math/tex; ">V,\hat{V} \in \mathbb{R}^{p \times d}</script> both have orthonormal columns, then the vector of <script type="math/tex; ">d</script> principal angles between their column spaces is <script type="math/tex; ">(\cos^{−1} \sigma_1 , \cdots , \cos^{-1} \sigma_d )^T</script> , where <script type="math/tex; ">\sigma_1 \geq \cdots \geq \sigma_d</script> are the singular values of <script type="math/tex; ">\hat{V}^TV</script>. Thus, principal angles between subspaces can be considered as a natural generalization of the acute angle between two vectors. </p>
-<p>We let <script type="math/tex; ">\Theta(\hat{V},V)</script> denote the <script type="math/tex; ">d \times d</script> diagonal matrix whose <script type="math/tex; ">j</script> th diagonal entry is the <script type="math/tex; ">j</script> th principal angle, and let <script type="math/tex; ">\sin\Theta(\hat{V},V)</script> be defined entrywise. </p>
-<p>Therefore, we can use Frobenius norm to represent the distance between the two subspaces. </p>
-<p><script type="math/tex; mode=display">
-\| \sin \Theta(\hat{V}, V)\|_F
-</script></p>
-<h2 id="golden-thompson-inequality"><a name="golden-thompson-inequality" class="anchor-navigation-ex-anchor" href="#golden-thompson-inequality"><i class="fa fa-link" aria-hidden="true"></i></a>3. Golden-Thompson inequality</h2>
-<p>Let A, B be two Hermitian matrices, when A and B commute, we have:</p>
-<p><script type="math/tex; mode=display">
-e^{A+B} = e^A e^B
-</script></p>
-<p>However, when A and B do not commute, the situation is much more complicated; we have the <em>Baker-Campell-Hausdoff</em> fomula:</p>
-<p><script type="math/tex; mode=display">
-e^{A+B} = e^A e^B e^{-\frac{1}{2}[A,B]} \dots
-</script></p>
-<p>the detailed form can be found <a href="https://en.wikipedia.org/wiki/Baker%E2%80%93Campbell%E2%80%93Hausdorff_formula" target="_blank">here</a>.</p>
-<p>On the other hand, taking determinants we still have the identity:</p>
-<p><script type="math/tex; mode=display">
-\mathrm{det}\left(e^{A+B}\right) = \mathrm{det}\left(e^{A}e^B\right)
-</script></p>
-<p>However, there is another very nice relationship, which is called <em>Golden-Thompson inequality</em>:</p>
-<p><script type="math/tex; mode=display">
-\mathrm{tr}\left(e^{A+B}\right) \leq \mathrm{tr}\left(e^{A}e^B\right)
-</script></p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#causal-inference"><b> </b>Causal Inference</a></li><ul><li><span class="title-icon "></span><a href="#totorial-references"><b>1. </b>Totorial References</a></li></ul></ul></div><a href="#causal-inference" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="causal-inference"><a name="causal-inference" class="anchor-navigation-ex-anchor" href="#causal-inference"><i class="fa fa-link" aria-hidden="true"></i></a> Causal Inference</h1>
+<h2 id="totorial-references"><a name="totorial-references" class="anchor-navigation-ex-anchor" href="#totorial-references"><i class="fa fa-link" aria-hidden="true"></i></a>1. Totorial References</h2>
+<ul>
+<li><p><a href="https://plato.stanford.edu/entries/causal-models/" target="_blank">Causal Model from Stanford Encyclopedia of Philosophy</a></p>
+</li>
+<li><p><a href="http://www.homepages.ucl.ac.uk/~ucgtrbd/talks/imperial_causality.pdf" target="_blank">Causal Inference in Machine Learning @ UCL</a></p>
+</li>
+<li><p>Also a <a href="http://www.cs.columbia.edu/~blei/seminar/2017_applied_causality/" target="_blank">references list</a> of David Blei.</p>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -569,12 +536,12 @@ e^{A+B} = e^A e^B e^{-\frac{1}{2}[A,B]} \dots
 
             
                 
-                <a href="eigen_inequ.html" class="navigation navigation-prev " aria-label="Previous page: Eigenvalue Inequalities">
+                <a href="VI.html" class="navigation navigation-prev " aria-label="Previous page: Variational Inference">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="optimization.html" class="navigation navigation-next " aria-label="Next page: Optimization Methods">
+                <a href="trick.html" class="navigation navigation-next " aria-label="Next page: Computational Tricks">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -585,7 +552,7 @@ e^{A+B} = e^A e^B e^{-\frac{1}{2}[A,B]} \dots
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Other Topics in Matrix Analysis","level":"1.9.3","depth":2,"next":{"title":"Optimization Methods","level":"1.10","depth":1,"path":"contents/optimization.md","ref":"./contents/optimization.md","articles":[{"title":"Stochastic Optimization","level":"1.10.1","depth":2,"path":"contents/stoc_opt.md","ref":"./contents/stoc_opt.md","articles":[]}]},"previous":{"title":"Eigenvalue Inequalities","level":"1.9.2","depth":2,"path":"contents/eigen_inequ.md","ref":"./contents/eigen_inequ.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/other_matrix.md","mtime":"2018-09-20T22:30:31.314Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T15:26:13.189Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Causal Inference","level":"1.3","depth":1,"next":{"title":"Computational Tricks","level":"1.4","depth":1,"path":"contents/trick.md","ref":"./contents/trick.md","articles":[]},"previous":{"title":"Variational Inference","level":"1.2.1","depth":2,"path":"contents/VI.md","ref":"./contents/VI.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/causal.md","mtime":"2018-10-30T23:07:20.797Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T15:26:13.189Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

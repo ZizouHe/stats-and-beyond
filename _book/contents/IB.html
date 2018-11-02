@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Other Topics in Matrix Analysis · Statistics and Beyond</title>
+        <title>Information Bottleneck · Statistics and Beyond</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -70,10 +70,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="optimization.html" />
+    <link rel="next" href="ML.html" />
     
     
-    <link rel="prev" href="eigen_inequ.html" />
+    <link rel="prev" href="VAE.html" />
     
 
     <style>
@@ -211,7 +211,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="IB.html">
+        <li class="chapter active" data-level="1.5.2" data-path="IB.html">
             
                 <a href="IB.html">
             
@@ -346,7 +346,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.3" data-path="other_matrix.html">
+        <li class="chapter " data-level="1.9.3" data-path="other_matrix.html">
             
                 <a href="other_matrix.html">
             
@@ -484,7 +484,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Other Topics in Matrix Analysis</a>
+        <a href=".." >Information Bottleneck</a>
     </h1>
 </div>
 
@@ -499,49 +499,75 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#other-topics-in-matrix-analysis"><b> </b>Other Topics in Matrix Analysis</a></li><ul><li><span class="title-icon "></span><a href="#courant-mini-max-principle"><b>1. </b>Courant Mini-max Principle</a></li><li><span class="title-icon "></span><a href="#sin-theta-distance-between-subspaces"><b>2. </b>\sin \Theta Distance between Subspaces</a></li><li><span class="title-icon "></span><a href="#golden-thompson-inequality"><b>3. </b>Golden-Thompson inequality</a></li></ul></ul></div><a href="#other-topics-in-matrix-analysis" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="other-topics-in-matrix-analysis"><a name="other-topics-in-matrix-analysis" class="anchor-navigation-ex-anchor" href="#other-topics-in-matrix-analysis"><i class="fa fa-link" aria-hidden="true"></i></a> Other Topics in Matrix Analysis</h1>
-<h2 id="courant-mini-max-principle"><a name="courant-mini-max-principle" class="anchor-navigation-ex-anchor" href="#courant-mini-max-principle"><i class="fa fa-link" aria-hidden="true"></i></a>1. Courant Mini-max Principle</h2>
-<p>Let <script type="math/tex; ">A</script> be a n &#xD7; n Hermitian matrix with eigen values <script type="math/tex; ">\lambda_1 \leq \lambda_2 \leq \cdots \leq \lambda_n</script>. Define </p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#information-bottleneck"><b> </b>Information Bottleneck</a></li><ul><li><span class="title-icon "></span><a href="#rate-distortion-theory"><b>1. </b>Rate distortion theory</a></li><li><span class="title-icon "></span><a href="#information-bottleneck_1"><b>2. </b>Information Bottleneck</a></li></ul></ul></div><a href="#information-bottleneck" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="information-bottleneck"><a name="information-bottleneck" class="anchor-navigation-ex-anchor" href="#information-bottleneck"><i class="fa fa-link" aria-hidden="true"></i></a> Information Bottleneck</h1>
+<p>Let <script type="math/tex; ">X</script> denote the signal (message) space with a fixed probability measure <script type="math/tex; ">p(x)</script>, and let <script type="math/tex; ">\tilde{X}</script> denote its quantized codebook or compressed representation.</p>
+<p>For each <script type="math/tex; ">x \in X</script>, we seek a possible stochastic mapping to a representative, or codeword in a codebook, <script type="math/tex; ">\tilde{x} \in \tilde{X}</script>, characterized by a conditional p.d.f. <script type="math/tex; ">p(\tilde{x} | x)</script>. We would like to find a good compression <script type="math/tex; ">\tilde{X}</script>.</p>
+<h2 id="rate-distortion-theory"><a name="rate-distortion-theory" class="anchor-navigation-ex-anchor" href="#rate-distortion-theory"><i class="fa fa-link" aria-hidden="true"></i></a>1. Rate distortion theory</h2>
+<p>We are facing a tradeoff bewteen the quality of representation and the level of compression. In single word, we want to use as fewer bits as possible to compress the original message but in the meantime remain as much information about the origin message as possible.</p>
+<p>In rate distortion theory such a constraint is provided through a distortion function,</p>
 <p><script type="math/tex; mode=display">
-R_A(x) = \frac{\langle Ax, x\rangle}{\langle x, x\rangle}
+d: X \times \tilde{X} \rightarrow \mathcal{R}^+
 </script></p>
-<p>The Mini-max principle states that</p>
+<p>which should be small for good representations. The partitioning of <script type="math/tex; ">X</script> induced by the mapping <script type="math/tex; ">p(\tilde{x} | x)</script>, has an expected distortion</p>
 <p><script type="math/tex; mode=display">
-\lambda_k = \min_{U} \left\{\max_x \left\{ R_A(x) | x \in U \; \text{and} \; x \neq 0 \right\} | \text{dim}(U) = k\right\}
+\langle d(x, \tilde{x}) \rangle_{p(\tilde{x} | x)} = \int_{x \in X} \int_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) d(x, \tilde{x})
 </script></p>
-<p>also,</p>
+<p>There is a monotonic tradeoff between the rate of quantization and the expected distortion: the larger the rate, the smaller is the achievable distortion.</p>
+<p>The celebrated rate distortion theorem of Shannon and Kolmogorov characterizes this tradeoff through the rate distortion function, defined as the minimal achievable rate under a given constraint on the expected distortion:</p>
 <p><script type="math/tex; mode=display">
-\lambda_k = \max_{U} \left\{\min_x \left\{ R_A(x) | x \in U \; \text{and} \; x \neq 0 \right\} | \text{dim}(U) = n - k + 1\right\}
+R(D) \equiv \min\limits_{\{p(\tilde{x} | x): \langle d(x, \tilde{x}) \rangle \leq D\}} I(X; \tilde{X})
 </script></p>
-<p>Therefore, one quick conclusion can be made:</p>
+<p>where the mutual information <script type="math/tex; ">I(X; \tilde{X})</script> is defined as</p>
 <p><script type="math/tex; mode=display">
-\lambda_1 \leq R_A(x) \leq \lambda_n, \quad \forall x \in \mathbb{C}^n \backslash\{0\}
+I(X; \tilde{X}) = \int_{x \in X} \int_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) \log \left[\frac{p(\tilde{x} | x)}{p(\tilde{x})}\right] \, \mathrm{d} \tilde{x} \, \mathrm{d} x
 </script></p>
-<h2 id="sin-theta-distance-between-subspaces"><a name="sin-theta-distance-between-subspaces" class="anchor-navigation-ex-anchor" href="#sin-theta-distance-between-subspaces"><i class="fa fa-link" aria-hidden="true"></i></a>2. \sin \Theta Distance between Subspaces</h2>
-<p>To define a notion of distance between subspaces spanned by two sets of vectors. This can be done through the idea of principal angles: if <script type="math/tex; ">V,\hat{V} \in \mathbb{R}^{p \times d}</script> both have orthonormal columns, then the vector of <script type="math/tex; ">d</script> principal angles between their column spaces is <script type="math/tex; ">(\cos^{−1} \sigma_1 , \cdots , \cos^{-1} \sigma_d )^T</script> , where <script type="math/tex; ">\sigma_1 \geq \cdots \geq \sigma_d</script> are the singular values of <script type="math/tex; ">\hat{V}^TV</script>. Thus, principal angles between subspaces can be considered as a natural generalization of the acute angle between two vectors. </p>
-<p>We let <script type="math/tex; ">\Theta(\hat{V},V)</script> denote the <script type="math/tex; ">d \times d</script> diagonal matrix whose <script type="math/tex; ">j</script> th diagonal entry is the <script type="math/tex; ">j</script> th principal angle, and let <script type="math/tex; ">\sin\Theta(\hat{V},V)</script> be defined entrywise. </p>
-<p>Therefore, we can use Frobenius norm to represent the distance between the two subspaces. </p>
+<p><span style="color:red">
+Notice that mutual information can be seen as the K-L divergence for joint distribution <script type="math/tex; ">p(x, \tilde{x})</script> and marginal distribution <script type="math/tex; ">p(\tilde{x}) p(x)</script>, which is non-negative and measures the dependency between these two variables. it reach zero if and only if <script type="math/tex; ">x</script> and <script type="math/tex; ">\tilde{x}</script> are independent.
+</span></p>
+<p>Back to the optimization problem, it can be reformalized as a Lagrangian with Lagrangian multiplier <script type="math/tex; ">\beta</script>. Here we would like to minimize the functional below:</p>
 <p><script type="math/tex; mode=display">
-\| \sin \Theta(\hat{V}, V)\|_F
+\mathcal{F}[p(\tilde{x} | x)] = I(X; \tilde{X}) + \beta \langle d(x, \tilde{x}) \rangle_{p(\tilde{x} | x)}
 </script></p>
-<h2 id="golden-thompson-inequality"><a name="golden-thompson-inequality" class="anchor-navigation-ex-anchor" href="#golden-thompson-inequality"><i class="fa fa-link" aria-hidden="true"></i></a>3. Golden-Thompson inequality</h2>
-<p>Let A, B be two Hermitian matrices, when A and B commute, we have:</p>
+<p>This variational formulation has the following well known consequences:</p>
+<p><strong>Theorem</strong></p>
+<p>The solution of the variational problem,</p>
 <p><script type="math/tex; mode=display">
-e^{A+B} = e^A e^B
+\frac{\delta \mathcal{F}}{\delta p(\tilde{x} | x)}
 </script></p>
-<p>However, when A and B do not commute, the situation is much more complicated; we have the <em>Baker-Campell-Hausdoff</em> fomula:</p>
+<p>for normalized distributions <script type="math/tex; ">p(\tilde{x} | x)</script>, is given by the exponential form</p>
 <p><script type="math/tex; mode=display">
-e^{A+B} = e^A e^B e^{-\frac{1}{2}[A,B]} \dots
+p(\tilde{x} | x) = \frac{p(\tilde{x})}{Z(x, \beta)} \exp[- \beta d(x, \tilde{x})]
 </script></p>
-<p>the detailed form can be found <a href="https://en.wikipedia.org/wiki/Baker%E2%80%93Campbell%E2%80%93Hausdorff_formula" target="_blank">here</a>.</p>
-<p>On the other hand, taking determinants we still have the identity:</p>
+<p>where <script type="math/tex; ">Z(x,\beta)</script> is a normalization (partition) function. Moreover, the Lagrangian multiplier <script type="math/tex; ">\beta</script> determined by the value of the expected distortion, D, is positive and satisfies</p>
 <p><script type="math/tex; mode=display">
-\mathrm{det}\left(e^{A+B}\right) = \mathrm{det}\left(e^{A}e^B\right)
+\frac{\delta R(D)}{\delta D} = - \beta
 </script></p>
-<p>However, there is another very nice relationship, which is called <em>Golden-Thompson inequality</em>:</p>
+<h2 id="information-bottleneck_1"><a name="information-bottleneck_1" class="anchor-navigation-ex-anchor" href="#information-bottleneck_1"><i class="fa fa-link" aria-hidden="true"></i></a>2. Information Bottleneck</h2>
+<p>Since the &quot;right&quot; distortion measure is rarely available, the problem of relevant quantization has to be addressed directly, by preserving the relevant information about another variable. The relevance variable, denoted here by <script type="math/tex; ">Y</script> , must not be independent from the original signal <script type="math/tex; ">X</script>, namely they have positive mutual information <script type="math/tex; ">I(X; Y)</script>. It is assumed here that we have access to the joint distribution <script type="math/tex; ">p(x,y)</script>.</p>
+<p>If <script type="math/tex; ">\tilde{X}</script> is given by <script type="math/tex; ">X</script> through a stochastic mapping, <script type="math/tex; ">p(\tilde{x} | x)</script>, then</p>
 <p><script type="math/tex; mode=display">
-\mathrm{tr}\left(e^{A+B}\right) \leq \mathrm{tr}\left(e^{A}e^B\right)
+I(\tilde{X}; Y) \leq I(X; Y)
 </script></p>
+<p>Obviously lossy compression cannot convey more information than the original data. There is also a tradeoff between compressing the representation and preserving meaningful information.</p>
+<p>Here we want the compression keeps a fixed amount of meaningful information about the relevant signal <script type="math/tex; ">Y</script> while minimizing the number of bits from the original signal <script type="math/tex; ">X</script>. We still consider a constraint optimization problem:</p>
+<p><script type="math/tex; mode=display">
+\min\limits_{I(\tilde{X}; Y) \geq D} I(X; \tilde{X})
+</script></p>
+<p>which can be reformalized as a Lagrangian</p>
+<p><script type="math/tex; mode=display">
+\mathcal{L}[p(\tilde{x} | x)] = I(\tilde{X}; X) - \beta I(\tilde{X}; Y)
+</script></p>
+<p>By varying the parameter <script type="math/tex; ">\beta</script> one can explore the tradeoff between the preserved meaningful information and compression at various resolutions.</p>
+<p><strong>Theorem</strong></p>
+<p>The optimal assignment satisfies the equation:</p>
+<p><script type="math/tex; mode=display">
+p(\tilde{x} | x) = \frac{p(\tilde{x})}{Z(x, \beta)} \exp \left[- \beta \sum_y p(y | x) log \frac{p(y | x)}{p(y | \tilde{x})}\right]
+</script></p>
+<p>where the distribution <script type="math/tex; ">p(y | \tilde{x})</script> in the exponent is given via Bayes&#x2019; rule and the Markov chain condition <script type="math/tex; ">\tilde{X} \leftarrow X \leftarrow Y</script>, as,</p>
+<p><script type="math/tex; mode=display">
+p(y | \tilde{x}) = \frac{1}{p(\tilde{x})} \sum_x p(y | x) p(\tilde{x} | x) p(x)
+</script></p>
+<p><strong>we must emphasize that it is a formal solution since <script type="math/tex; ">p(y | \tilde{x})</script> in the exponential is defined implicitly in terms of the assignment mapping <script type="math/tex; ">p(\tilde{x} | x)</script>.</strong></p>
 
                                 
                                 </section>
@@ -569,12 +595,12 @@ e^{A+B} = e^A e^B e^{-\frac{1}{2}[A,B]} \dots
 
             
                 
-                <a href="eigen_inequ.html" class="navigation navigation-prev " aria-label="Previous page: Eigenvalue Inequalities">
+                <a href="VAE.html" class="navigation navigation-prev " aria-label="Previous page: Variational Autoencoder">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="optimization.html" class="navigation navigation-next " aria-label="Next page: Optimization Methods">
+                <a href="ML.html" class="navigation navigation-next " aria-label="Next page: General Machine Learning">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -585,7 +611,7 @@ e^{A+B} = e^A e^B e^{-\frac{1}{2}[A,B]} \dots
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Other Topics in Matrix Analysis","level":"1.9.3","depth":2,"next":{"title":"Optimization Methods","level":"1.10","depth":1,"path":"contents/optimization.md","ref":"./contents/optimization.md","articles":[{"title":"Stochastic Optimization","level":"1.10.1","depth":2,"path":"contents/stoc_opt.md","ref":"./contents/stoc_opt.md","articles":[]}]},"previous":{"title":"Eigenvalue Inequalities","level":"1.9.2","depth":2,"path":"contents/eigen_inequ.md","ref":"./contents/eigen_inequ.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/other_matrix.md","mtime":"2018-09-20T22:30:31.314Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T15:26:13.189Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Information Bottleneck","level":"1.5.2","depth":2,"next":{"title":"General Machine Learning","level":"1.6","depth":1,"path":"contents/ML.md","ref":"./contents/ML.md","articles":[{"title":"Expectation-maximization","level":"1.6.1","depth":2,"path":"contents/EM.md","ref":"./contents/EM.md","articles":[]}]},"previous":{"title":"Variational Autoencoder","level":"1.5.1","depth":2,"path":"contents/VAE.md","ref":"./contents/VAE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/IB.md","mtime":"2018-11-02T16:34:26.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T15:26:13.189Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
