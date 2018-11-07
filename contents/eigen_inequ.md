@@ -80,4 +80,3 @@ $$
 $$
 
 given the fact that $$\mathrm{rank}(B) \leq k \; \Longrightarrow \;\lambda_j(B) = 0,\; j \geq k+1$$
-

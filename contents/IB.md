@@ -17,7 +17,7 @@ $$
 which should be small for good representations. The partitioning of $$X$$ induced by the mapping $$p(\tilde{x} | x)$$, has an expected distortion
 
 $$
-\langle d(x, \tilde{x}) \rangle_{p(\tilde{x} | x)} = \int_{x \in X} \int_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) d(x, \tilde{x})
+\langle d(x, \tilde{x}) \rangle_{p(\tilde{x} | x)} = \sum_{x \in X} \sum_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) d(x, \tilde{x})
 $$
 
 There is a monotonic tradeoff between the rate of quantization and the expected distortion: the larger the rate, the smaller is the achievable distortion.
@@ -31,7 +31,7 @@ $$
 where the mutual information $$I(X; \tilde{X})$$ is defined as
 
 $$
-I(X; \tilde{X}) = \int_{x \in X} \int_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) \log \left[\frac{p(\tilde{x} | x)}{p(\tilde{x})}\right] \, \mathrm{d} \tilde{x} \, \mathrm{d} x
+I(X; \tilde{X}) = \sum_{x \in X} \sum_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) \log \left[\frac{p(\tilde{x} | x)}{p(\tilde{x})}\right] \, \mathrm{d} \tilde{x} \, \mathrm{d} x
 $$
 
 <span style="color:red">
@@ -107,3 +107,7 @@ p(y | \tilde{x}) = \frac{1}{p(\tilde{x})} \sum_x p(y | x) p(\tilde{x} | x) p(x)
 $$
 
 **we must emphasize that it is a formal solution since $$p(y | \tilde{x})$$ in the exponential is defined implicitly in terms of the assignment mapping $$p(\tilde{x} | x)$$.**
+
+<span style="color:red">
+Remark: The Markov condition $$\tilde{X} \leftarrow X \leftarrow Y$$ accutually states that $$\tilde{X}$$ and $$Y$$ are conditionally independent given $$X$$.
+</span>

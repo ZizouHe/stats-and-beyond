@@ -70,10 +70,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="ML.html" />
+    <link rel="next" href="VAE.html" />
     
     
-    <link rel="prev" href="VAE.html" />
+    <link rel="prev" href="DL.html" />
     
 
     <style>
@@ -198,12 +198,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="VAE.html">
+        <li class="chapter active" data-level="1.5.1" data-path="IB.html">
             
-                <a href="VAE.html">
+                <a href="IB.html">
             
                     
-                    Variational Autoencoder
+                    Information Bottleneck
             
                 </a>
             
@@ -211,12 +211,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="IB.html">
+        <li class="chapter " data-level="1.5.2" data-path="VAE.html">
             
-                <a href="IB.html">
+                <a href="VAE.html">
             
                     
-                    Information Bottleneck
+                    Variational Autoencoder
             
                 </a>
             
@@ -320,12 +320,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="norms.html">
+        <li class="chapter " data-level="1.9.1" data-path="eigen_inequ.html">
             
-                <a href="norms.html">
+                <a href="eigen_inequ.html">
             
                     
-                    Norms
+                    Eigenvalue Inequalities
             
                 </a>
             
@@ -333,12 +333,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="eigen_inequ.html">
+        <li class="chapter " data-level="1.9.2" data-path="norms.html">
             
-                <a href="eigen_inequ.html">
+                <a href="norms.html">
             
                     
-                    Eigenvalue Inequalities
+                    Norms
             
                 </a>
             
@@ -364,7 +364,39 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="optimization.html">
+        <li class="chapter " data-level="1.10" data-path="miscell.html">
+            
+                <a href="miscell.html">
+            
+                    
+                    Miscellaneous Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="cvx_analysis.html">
+            
+                <a href="cvx_analysis.html">
+            
+                    
+                    Convex Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="optimization.html">
             
                 <a href="optimization.html">
             
@@ -378,7 +410,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.10.1" data-path="stoc_opt.html">
+        <li class="chapter " data-level="1.11.1" data-path="stoc_opt.html">
             
                 <a href="stoc_opt.html">
             
@@ -396,12 +428,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="PCA.html">
+        <li class="chapter " data-level="1.12" data-path="PCA.html">
             
                 <a href="PCA.html">
             
                     
-                    Principle Component Analysis
+                    PCA and Clustering
             
                 </a>
             
@@ -410,20 +442,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.1" data-path="PPCA.html">
-            
-                <a href="PPCA.html">
-            
-                    
-                    Probabilistic PCA
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.2" data-path="FA.html">
+        <li class="chapter " data-level="1.12.1" data-path="FA.html">
             
                 <a href="FA.html">
             
@@ -436,17 +455,43 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12.2" data-path="GPCA.html">
+            
+                <a href="GPCA.html">
+            
+                    
+                    Generalized PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="PPCA.html">
+            
+                <a href="PPCA.html">
+            
+                    
+                    Probabilistic PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="miscell.html">
+        <li class="chapter " data-level="1.13" data-path="morocco.html">
             
-                <a href="miscell.html">
+                <a href="morocco.html">
             
                     
-                    Miscellaneous Topics
+                    Morocco
             
                 </a>
             
@@ -510,7 +555,7 @@ d: X \times \tilde{X} \rightarrow \mathcal{R}^+
 </script></p>
 <p>which should be small for good representations. The partitioning of <script type="math/tex; ">X</script> induced by the mapping <script type="math/tex; ">p(\tilde{x} | x)</script>, has an expected distortion</p>
 <p><script type="math/tex; mode=display">
-\langle d(x, \tilde{x}) \rangle_{p(\tilde{x} | x)} = \int_{x \in X} \int_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) d(x, \tilde{x})
+\langle d(x, \tilde{x}) \rangle_{p(\tilde{x} | x)} = \sum_{x \in X} \sum_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) d(x, \tilde{x})
 </script></p>
 <p>There is a monotonic tradeoff between the rate of quantization and the expected distortion: the larger the rate, the smaller is the achievable distortion.</p>
 <p>The celebrated rate distortion theorem of Shannon and Kolmogorov characterizes this tradeoff through the rate distortion function, defined as the minimal achievable rate under a given constraint on the expected distortion:</p>
@@ -519,7 +564,7 @@ R(D) \equiv \min\limits_{\{p(\tilde{x} | x): \langle d(x, \tilde{x}) \rangle \le
 </script></p>
 <p>where the mutual information <script type="math/tex; ">I(X; \tilde{X})</script> is defined as</p>
 <p><script type="math/tex; mode=display">
-I(X; \tilde{X}) = \int_{x \in X} \int_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) \log \left[\frac{p(\tilde{x} | x)}{p(\tilde{x})}\right] \, \mathrm{d} \tilde{x} \, \mathrm{d} x
+I(X; \tilde{X}) = \sum_{x \in X} \sum_{\tilde{x} \in \tilde{X}} p(x, \tilde{x}) \log \left[\frac{p(\tilde{x} | x)}{p(\tilde{x})}\right] \, \mathrm{d} \tilde{x} \, \mathrm{d} x
 </script></p>
 <p><span style="color:red">
 Notice that mutual information can be seen as the K-L divergence for joint distribution <script type="math/tex; ">p(x, \tilde{x})</script> and marginal distribution <script type="math/tex; ">p(\tilde{x}) p(x)</script>, which is non-negative and measures the dependency between these two variables. it reach zero if and only if <script type="math/tex; ">x</script> and <script type="math/tex; ">\tilde{x}</script> are independent.
@@ -568,6 +613,9 @@ p(\tilde{x} | x) = \frac{p(\tilde{x})}{Z(x, \beta)} \exp \left[- \beta \sum_y p(
 p(y | \tilde{x}) = \frac{1}{p(\tilde{x})} \sum_x p(y | x) p(\tilde{x} | x) p(x)
 </script></p>
 <p><strong>we must emphasize that it is a formal solution since <script type="math/tex; ">p(y | \tilde{x})</script> in the exponential is defined implicitly in terms of the assignment mapping <script type="math/tex; ">p(\tilde{x} | x)</script>.</strong></p>
+<p><span style="color:red">
+Remark: The Markov condition <script type="math/tex; ">\tilde{X} \leftarrow X \leftarrow Y</script> accutually states that <script type="math/tex; ">\tilde{X}</script> and <script type="math/tex; ">Y</script> are conditionally independent given <script type="math/tex; ">X</script>.
+</span></p>
 
                                 
                                 </section>
@@ -595,12 +643,12 @@ p(y | \tilde{x}) = \frac{1}{p(\tilde{x})} \sum_x p(y | x) p(\tilde{x} | x) p(x)
 
             
                 
-                <a href="VAE.html" class="navigation navigation-prev " aria-label="Previous page: Variational Autoencoder">
+                <a href="DL.html" class="navigation navigation-prev " aria-label="Previous page: General Deep Learning">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="ML.html" class="navigation navigation-next " aria-label="Next page: General Machine Learning">
+                <a href="VAE.html" class="navigation navigation-next " aria-label="Next page: Variational Autoencoder">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -611,7 +659,7 @@ p(y | \tilde{x}) = \frac{1}{p(\tilde{x})} \sum_x p(y | x) p(\tilde{x} | x) p(x)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Information Bottleneck","level":"1.5.2","depth":2,"next":{"title":"General Machine Learning","level":"1.6","depth":1,"path":"contents/ML.md","ref":"./contents/ML.md","articles":[{"title":"Expectation-maximization","level":"1.6.1","depth":2,"path":"contents/EM.md","ref":"./contents/EM.md","articles":[]}]},"previous":{"title":"Variational Autoencoder","level":"1.5.1","depth":2,"path":"contents/VAE.md","ref":"./contents/VAE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/IB.md","mtime":"2018-11-02T16:34:26.121Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-02T15:26:13.189Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Information Bottleneck","level":"1.5.1","depth":2,"next":{"title":"Variational Autoencoder","level":"1.5.2","depth":2,"path":"contents/VAE.md","ref":"./contents/VAE.md","articles":[]},"previous":{"title":"General Deep Learning","level":"1.5","depth":1,"path":"contents/DL.md","ref":"./contents/DL.md","articles":[{"title":"Information Bottleneck","level":"1.5.1","depth":2,"path":"contents/IB.md","ref":"./contents/IB.md","articles":[]},{"title":"Variational Autoencoder","level":"1.5.2","depth":2,"path":"contents/VAE.md","ref":"./contents/VAE.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/IB.md","mtime":"2018-11-02T17:58:58.828Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-07T07:05:18.444Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
