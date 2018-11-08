@@ -16,6 +16,7 @@
 * [Matrix and Related Numerical Analysis](./contents/matrix.md)
 	* [Eigenvalue Inequalities](./contents/eigen_inequ.md)
 	* [Norms](./contents/norms.md)
+	* [Power Iteration](./contents/power.md)
 	* [Other Topics in Matrix Analysis](./contents/other_matrix.md)
 * [Miscellaneous Topics](./contents/miscell.md)
 	* [Convex Analysis](./contents/cvx_analysis.md)

@@ -1,0 +1,701 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Power Iteration · Statistics and Beyond</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="other_matrix.html" />
+    
+    
+    <link rel="prev" href="norms.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="bayes.html">
+            
+                <a href="bayes.html">
+            
+                    
+                    Bayesian Statistics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="VI.html">
+            
+                <a href="VI.html">
+            
+                    
+                    Variational Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="causal.html">
+            
+                <a href="causal.html">
+            
+                    
+                    Causal Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="trick.html">
+            
+                <a href="trick.html">
+            
+                    
+                    Computational Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="DL.html">
+            
+                <a href="DL.html">
+            
+                    
+                    General Deep Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="IB.html">
+            
+                <a href="IB.html">
+            
+                    
+                    Information Bottleneck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="VAE.html">
+            
+                <a href="VAE.html">
+            
+                    
+                    Variational Autoencoder
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ML.html">
+            
+                <a href="ML.html">
+            
+                    
+                    General Machine Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="EM.html">
+            
+                <a href="EM.html">
+            
+                    
+                    Expectation-maximization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="inequality.html">
+            
+                <a href="inequality.html">
+            
+                    
+                    Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="linear.html">
+            
+                <a href="linear.html">
+            
+                    
+                    Linear Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="lasso.html">
+            
+                <a href="lasso.html">
+            
+                    
+                    Lasso
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="matrix.html">
+            
+                <a href="matrix.html">
+            
+                    
+                    Matrix and Related Numerical Analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="eigen_inequ.html">
+            
+                <a href="eigen_inequ.html">
+            
+                    
+                    Eigenvalue Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="norms.html">
+            
+                <a href="norms.html">
+            
+                    
+                    Norms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.3" data-path="power.html">
+            
+                <a href="power.html">
+            
+                    
+                    Power Iteration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="other_matrix.html">
+            
+                <a href="other_matrix.html">
+            
+                    
+                    Other Topics in Matrix Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="miscell.html">
+            
+                <a href="miscell.html">
+            
+                    
+                    Miscellaneous Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="cvx_analysis.html">
+            
+                <a href="cvx_analysis.html">
+            
+                    
+                    Convex Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="optimization.html">
+            
+                <a href="optimization.html">
+            
+                    
+                    Optimization Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="stoc_opt.html">
+            
+                <a href="stoc_opt.html">
+            
+                    
+                    Stochastic Optimization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="PCA.html">
+            
+                <a href="PCA.html">
+            
+                    
+                    PCA and Clustering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="FA.html">
+            
+                <a href="FA.html">
+            
+                    
+                    Factor Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="GPCA.html">
+            
+                <a href="GPCA.html">
+            
+                    
+                    Generalized PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="PPCA.html">
+            
+                <a href="PPCA.html">
+            
+                    
+                    Probabilistic PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="morocco.html">
+            
+                <a href="morocco.html">
+            
+                    
+                    Morocco
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Power Iteration</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#power-iteration"><b> </b>Power Iteration</a></li><ul><li><span class="title-icon "></span><a href="#basic-algorithm"><b>1. </b>Basic Algorithm</a></li><li><span class="title-icon "></span><a href="#shift-and-invert-method"><b>2. </b>Shift-and-Invert Method</a></li><li><span class="title-icon "></span><a href="#stochastic-variance-reduced-gradient-svrg"><b>3. </b>Stochastic Variance Reduced Gradient (SVRG)</a></li></ul></ul></div><a href="#power-iteration" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="power-iteration"><a name="power-iteration" class="anchor-navigation-ex-anchor" href="#power-iteration"><i class="fa fa-link" aria-hidden="true"></i></a> Power Iteration</h1>
+<p>The power method for computing the top eigenvector of a symmetric, diagonalizable A starts with an initial vector <script type="math/tex; ">x</script> and repeatedly multiplies by A, eventually causing <script type="math/tex; ">x</script> to converge to the top eigenvector. </p>
+<h2 id="basic-algorithm"><a name="basic-algorithm" class="anchor-navigation-ex-anchor" href="#basic-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>1. Basic Algorithm</h2>
+<p>Suppose <script type="math/tex; ">A \in \mathbb{C}^{n \times n}</script> is diagonalizable with eigenvalues <script type="math/tex; ">\lambda_1, ..., \lambda_n</script> in a decreasing absolute order (if A is the sample covariance matrix in most case, then all eigenvalues are non-negative). Then, from a random vector <script type="math/tex; ">x^{(0)}</script>, our updating rule is:</p>
+<p><script type="math/tex; mode=display">
+x^{(k+1)} = \frac{A x^{(k)}}{\|A x^{(k)}\|}
+</script></p>
+<p>The idea behind this algorithm is simple: if <script type="math/tex; ">\lambda_1</script> is the largest one, then the power iteration will stands out the largest one while other <script type="math/tex; ">\left(\frac{\lambda_i}{\lambda_1}\right)^k</script> will converge to zero.</p>
+<p>There is one obvious potential problems with the power method: <em>What if <script type="math/tex; ">\frac{\lambda_2}{\lambda_1}</script> is near one?</em> Or the relative gap is very small? We
+address this problem now. </p>
+<p><script type="math/tex; mode=display">
+\mathrm{gap} = \frac{|\lambda_1 - \lambda_2|}{|\lambda_1|}
+</script></p>
+<h2 id="shift-and-invert-method"><a name="shift-and-invert-method" class="anchor-navigation-ex-anchor" href="#shift-and-invert-method"><i class="fa fa-link" aria-hidden="true"></i></a>2. Shift-and-Invert Method</h2>
+<p>For a random start vector, the power method converges in <script type="math/tex; ">O\left(\log(d \; / \;\epsilon) \; \frac{1}{\mathrm{gap}} \right)</script> iterations, where</p>
+<p><script type="math/tex; mode=display">
+\mathrm{gap} = \frac{|\lambda_1 - \lambda_2|}{|\lambda_1|}
+</script></p>
+<p>we assume a high-accuracy regime where <script type="math/tex; ">\epsilon < </script> gap. The dependence on this gap ensures that the largest eigenvalue is significantly amplified in comparison to the remaining values.</p>
+<p>If the eigenvalue gap is small, one approach is replace A with a preconditioned matrix &#x2013; i.e. a matrix with the same top eigenvector but a much larger gap. Specifically, let <script type="math/tex; ">B = \lambda I − A^TA</script> for some shift parameter <script type="math/tex; ">\lambda</script>. If <script type="math/tex; ">\lambda > \lambda_1</script>, we can see that the smallest eigenvector of B (the largest eigenvector of <script type="math/tex; ">B^{−1}</script>) is equal to the largest eigenvector of A. </p>
+<p>Additionally, if <script type="math/tex; ">\lambda</script> is close to <script type="math/tex; ">\lambda_1</script>, there will be a constant gap between the largest and second largest values of <script type="math/tex; ">B^{−1}</script>. For example, if
+<script type="math/tex; ">\lambda = (1 + \mathrm{gap})\lambda_1</script>, then we will have</p>
+<p><script type="math/tex; mode=display">
+\lambda_1(B^{-1}) = \frac{1}{\lambda - \lambda_1} = \frac{1}{\mathrm{gap}\;\lambda_1}
+</script></p>
+<p><script type="math/tex; mode=display">
+\lambda_2(B^{-1}) = \frac{1}{\lambda - \lambda_2} = \frac{1}{2 \; \mathrm{gap}\;\lambda_1}
+</script></p>
+<p>This constant factor gap ensures that the power method applied to <script type="math/tex; ">B^{−1}</script> converges to the top eigenvector of A in just <script type="math/tex; ">O\left(\log(d \; / \;\epsilon)\right)</script> iterations.</p>
+<h2 id="stochastic-variance-reduced-gradient-svrg"><a name="stochastic-variance-reduced-gradient-svrg" class="anchor-navigation-ex-anchor" href="#stochastic-variance-reduced-gradient-svrg"><i class="fa fa-link" aria-hidden="true"></i></a>3. Stochastic Variance Reduced Gradient (SVRG)</h2>
+<p>The shift-and-invert method has a a catch &#x2013; each iteration of
+this shifted-and-inverted power method must solve a linear system in B, whose condition number is proportional <script type="math/tex; ">\frac{1}{\mathrm{gap}}</script>. For small gap, solving this system via iterative methods is more expensive.</p>
+<p>Fortunately, linear system solvers are incredibly well studied and there are many efficient itera- tive algorithms we can adapt to. when <script type="math/tex; ">A</script> is positive semi-definite (i.e. covariance matrix),we introduce a variant of Stochastic Variance Reduced Gradient method.</p>
+<p>Typically, stochastic gradient methods are used to optimize convex functions that are given as the sum of many convex components. To solve a linear system</p>
+<p><script type="math/tex; mode=display">
+A x = b
+</script></p>
+<p>we can minimize the convex function </p>
+<p><script type="math/tex; mode=display">
+f(x) = \frac{1}{2} x^T A x - b^T x
+</script></p>
+<p>using some common methods like Newton method.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="norms.html" class="navigation navigation-prev " aria-label="Previous page: Norms">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="other_matrix.html" class="navigation navigation-next " aria-label="Next page: Other Topics in Matrix Analysis">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Power Iteration","level":"1.9.3","depth":2,"next":{"title":"Other Topics in Matrix Analysis","level":"1.9.4","depth":2,"path":"contents/other_matrix.md","ref":"./contents/other_matrix.md","articles":[]},"previous":{"title":"Norms","level":"1.9.2","depth":2,"path":"contents/norms.md","ref":"./contents/norms.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/power.md","mtime":"2018-11-08T00:32:13.330Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T00:32:31.819Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
