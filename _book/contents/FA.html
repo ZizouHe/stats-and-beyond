@@ -570,8 +570,84 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#factor-analysis"><b> </b>Factor Analysis</a></li></ul></div><a href="#factor-analysis" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="factor-analysis"><a name="factor-analysis" class="anchor-navigation-ex-anchor" href="#factor-analysis"><i class="fa fa-link" aria-hidden="true"></i></a> Factor Analysis</h1>
-<p>See <a href="http://cs229.stanford.edu/notes/cs229-notes9.pdf" target="_blank">Andrew Ng&apos;s Lecture Notes on Factor Analysis</a>.</p>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#factor-analysis"><b> </b>Factor Analysis</a></li><ul><li><span class="title-icon "></span><a href="#model"><b>1. </b>Model</a></li><li><span class="title-icon "></span><a href="#covariance-matrix"><b>2. </b>Covariance Matrix</a></li><li><span class="title-icon "></span><a href="#methods-of-estimation"><b>3. </b>Methods of Estimation</a></li><ul><li><span class="title-icon "></span><a href="#pca"><b>3.1. </b>PCA</a></li><li><span class="title-icon "></span><a href="#maximum-likelihood-method"><b>3.2. </b>Maximum Likelihood Method</a></li></ul><li><span class="title-icon "></span><a href="#factor-rotation"><b>4. </b>Factor Rotation</a></li><li><span class="title-icon "></span><a href="#reference"><b>5. </b>Reference</a></li></ul></ul></div><a href="#factor-analysis" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="factor-analysis"><a name="factor-analysis" class="anchor-navigation-ex-anchor" href="#factor-analysis"><i class="fa fa-link" aria-hidden="true"></i></a> Factor Analysis</h1>
+<h2 id="model"><a name="model" class="anchor-navigation-ex-anchor" href="#model"><i class="fa fa-link" aria-hidden="true"></i></a>1. Model</h2>
+<p><script type="math/tex; ">X \in \mathbb{R}^p</script> is linearly dependent upon a few common factors and specific factors, with</p>
+<p><script type="math/tex; mode=display">
+X - \mu = L F + \epsilon
+</script></p>
+<p>where <script type="math/tex; ">L \in \mathbb{R}^{p \times m}</script> the <em>factor loading</em>, <script type="math/tex; ">F \in \mathbb{R}^{m \times 1}, m < p</script> the <em>factor (common factor)</em>, and <script type="math/tex; ">\epsilon \in \mathbb{R}^{p \times 1}</script> the <em>noise (specific factor)</em>.</p>
+<p>note that the representation is not unique, since</p>
+<p><script type="math/tex; mode=display">
+X - \mu = (LT) (T'F) + \epsilon, \; \; T T^T = I
+</script></p>
+<p>There are some assumptions: factors are independent as well as noise</p>
+<p><script type="math/tex; mode=display">
+\mathbb{E}(F) = 0, \quad \mathrm{Cov}(F) = I
+</script></p>
+<p><script type="math/tex; mode=display">
+\mathbb{E}(\epsilon) = 0, \quad \mathrm{Cov}(\epsilon) = \Psi = \mathrm{diag}(\psi_1, ..., \psi_p)
+</script></p>
+<p>and </p>
+<p><script type="math/tex; mode=display">
+\mathrm{Cov}(\epsilon, F) = \boldsymbol{0}
+</script></p>
+<h2 id="covariance-matrix"><a name="covariance-matrix" class="anchor-navigation-ex-anchor" href="#covariance-matrix"><i class="fa fa-link" aria-hidden="true"></i></a>2. Covariance Matrix</h2>
+<p>Total covariance matrix is</p>
+<p><script type="math/tex; mode=display">
+\Sigma = L L^T + \Psi
+</script></p>
+<p>and variance can be decomposited into two parts: communality and specific variance</p>
+<p><script type="math/tex; mode=display">
+\sigma_{ii} = l_{i1}^2 + \cdots + l_{im}^2 + \psi_i \triangleq h_i^2 + \psi_i
+</script></p>
+<p>Notice that communality is not affected by <script type="math/tex; ">T</script>.</p>
+<h2 id="methods-of-estimation"><a name="methods-of-estimation" class="anchor-navigation-ex-anchor" href="#methods-of-estimation"><i class="fa fa-link" aria-hidden="true"></i></a>3. Methods of Estimation</h2>
+<h3 id="pca"><a name="pca" class="anchor-navigation-ex-anchor" href="#pca"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. PCA</h3>
+<ol>
+<li><p>Initial <script type="math/tex; ">\tilde{\Psi}</script></p>
+</li>
+<li><p>Find <script type="math/tex; ">L</script>, the largest <script type="math/tex; ">m</script> eigenvectors of the eigen decomposition of <script type="math/tex; ">\hat{\Sigma} - \tilde{\Psi}</script></p>
+</li>
+<li><p>Update <script type="math/tex; ">\tilde{\Psi} = \mathrm{diag}(\hat{\Sigma} - L L^T)</script></p>
+</li>
+<li><p>Repeat...</p>
+</li>
+</ol>
+<h3 id="maximum-likelihood-method"><a name="maximum-likelihood-method" class="anchor-navigation-ex-anchor" href="#maximum-likelihood-method"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. Maximum Likelihood Method</h3>
+<p>Assumption: the common factors and the specific factors are jointly normally distributed.</p>
+<p>It is not well defined because of multiplicity of choices of L, we can impose computationally convenient uniqueness condition:</p>
+<p><script type="math/tex; mode=display">
+L^T \Psi^{-1} L = \Phi, \; \; \Phi \;\; \text{is diagonal matrix}
+</script></p>
+<h2 id="factor-rotation"><a name="factor-rotation" class="anchor-navigation-ex-anchor" href="#factor-rotation"><i class="fa fa-link" aria-hidden="true"></i></a>4. Factor Rotation</h2>
+<p>We have different choice of <script type="math/tex; ">T</script>. Ideally, we should like to see a pattern of loadings such that each variable loads highly on a single factor and has small to moderate loadings on the remaining factors.</p>
+<p>We here introduce <em>Varimax Criterion</em>, Varimax procedure selects the orthogonal transformation <script type="math/tex; ">T</script> that maximizes</p>
+<p><script type="math/tex; mode=display">
+V = \frac{1}{p} \sum_{j=1}^m \left\{\sum_{i=1}^p \tilde{l}_{ij}^4 - \frac{1}{p}\left[\sum_{i=1}^p \tilde{l}_{ij}^2\right]^2\right\}
+</script></p>
+<h2 id="reference"><a name="reference" class="anchor-navigation-ex-anchor" href="#reference"><i class="fa fa-link" aria-hidden="true"></i></a>5. Reference</h2>
+<ul>
+<li><p><a href="http://cs229.stanford.edu/notes/cs229-notes9.pdf" target="_blank">Andrew Ng&apos;s Lecture Notes on Factor Analysis</a>.</p>
+</li>
+<li><p>Chapter 9 of Johnson &amp; Wichern, Applied Multivariate Statistical Analysis, 6th edition. </p>
+</li>
+<li><p>See below Lin Hou&apos;s lecture notes (<em>Tsinghua, Multivariate Statistical Analysis</em>) on Factor analysis.</p>
+</li>
+</ul>
+<p><div class="pdf">
+                                
+                <div class="pdf__link"><a target="_blank" href="../assets/Factor%20Analysis_Tsinghua.pdf">View PDF</a></div>
+                
+                                <object data="/assets/Factor Analysis_Tsinghua.pdf" width="100%" height="850" type="application/pdf">
+                                    <embed src="/assets/Factor Analysis_Tsinghua.pdf">
+                                        <p>
+                                            This browser does not support PDFs. <br>
+                                            Please download the PDF to view it: <a target="_blank" href="../assets/Factor%20Analysis_Tsinghua.pdf">Download PDF</a>.
+                                        </p>
+                                    
+                                </object>
+                            </div></p>
 
                                 
                                 </section>
@@ -615,7 +691,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Factor Analysis","level":"1.12.1","depth":2,"next":{"title":"Generalized PCA","level":"1.12.2","depth":2,"path":"contents/GPCA.md","ref":"./contents/GPCA.md","articles":[]},"previous":{"title":"PCA and Clustering","level":"1.12","depth":1,"path":"contents/PCA.md","ref":"./contents/PCA.md","articles":[{"title":"Factor Analysis","level":"1.12.1","depth":2,"path":"contents/FA.md","ref":"./contents/FA.md","articles":[]},{"title":"Generalized PCA","level":"1.12.2","depth":2,"path":"contents/GPCA.md","ref":"./contents/GPCA.md","articles":[]},{"title":"Probabilistic PCA","level":"1.12.3","depth":2,"path":"contents/PPCA.md","ref":"./contents/PPCA.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/FA.md","mtime":"2018-10-19T06:39:32.213Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-09T03:13:30.917Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Factor Analysis","level":"1.12.1","depth":2,"next":{"title":"Generalized PCA","level":"1.12.2","depth":2,"path":"contents/GPCA.md","ref":"./contents/GPCA.md","articles":[]},"previous":{"title":"PCA and Clustering","level":"1.12","depth":1,"path":"contents/PCA.md","ref":"./contents/PCA.md","articles":[{"title":"Factor Analysis","level":"1.12.1","depth":2,"path":"contents/FA.md","ref":"./contents/FA.md","articles":[]},{"title":"Generalized PCA","level":"1.12.2","depth":2,"path":"contents/GPCA.md","ref":"./contents/GPCA.md","articles":[]},{"title":"Probabilistic PCA","level":"1.12.3","depth":2,"path":"contents/PPCA.md","ref":"./contents/PPCA.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/FA.md","mtime":"2018-11-09T08:38:24.649Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-09T08:37:15.909Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
