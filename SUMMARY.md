@@ -10,6 +10,7 @@
 	* [Variational Autoencoder](./contents/VAE.md)
 * [General Machine Learning](./contents/ML.md)
 	* [Expectation-maximization](./contents/EM.md)
+	* [Probabilistic Graphic Models](./contents/PGM.md)
 * [Inequalities](./contents/inequality.md)
 * [Linear Methods](./contents/linear.md)
 	* [Lasso](./contents/lasso.md)

@@ -1,0 +1,795 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Probabilistic Graphic Models · Statistics and Beyond</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="inequality.html" />
+    
+    
+    <link rel="prev" href="EM.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="bayes.html">
+            
+                <a href="bayes.html">
+            
+                    
+                    Bayesian Statistics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="VI.html">
+            
+                <a href="VI.html">
+            
+                    
+                    Variational Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="causal.html">
+            
+                <a href="causal.html">
+            
+                    
+                    Causal Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="trick.html">
+            
+                <a href="trick.html">
+            
+                    
+                    Computational Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="DL.html">
+            
+                <a href="DL.html">
+            
+                    
+                    General Deep Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="IB.html">
+            
+                <a href="IB.html">
+            
+                    
+                    Information Bottleneck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="VAE.html">
+            
+                <a href="VAE.html">
+            
+                    
+                    Variational Autoencoder
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="ML.html">
+            
+                <a href="ML.html">
+            
+                    
+                    General Machine Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="EM.html">
+            
+                <a href="EM.html">
+            
+                    
+                    Expectation-maximization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="PGM.html">
+            
+                <a href="PGM.html">
+            
+                    
+                    Probabilistic Graphic Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="inequality.html">
+            
+                <a href="inequality.html">
+            
+                    
+                    Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="linear.html">
+            
+                <a href="linear.html">
+            
+                    
+                    Linear Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="lasso.html">
+            
+                <a href="lasso.html">
+            
+                    
+                    Lasso
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="matrix.html">
+            
+                <a href="matrix.html">
+            
+                    
+                    Matrix and Related Numerical Analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="eigen_inequ.html">
+            
+                <a href="eigen_inequ.html">
+            
+                    
+                    Eigenvalue Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="norms.html">
+            
+                <a href="norms.html">
+            
+                    
+                    Norms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="power.html">
+            
+                <a href="power.html">
+            
+                    
+                    Power Iteration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="other_matrix.html">
+            
+                <a href="other_matrix.html">
+            
+                    
+                    Other Topics in Matrix Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="miscell.html">
+            
+                <a href="miscell.html">
+            
+                    
+                    Miscellaneous Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="cvx_analysis.html">
+            
+                <a href="cvx_analysis.html">
+            
+                    
+                    Convex Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="optimization.html">
+            
+                <a href="optimization.html">
+            
+                    
+                    Optimization Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="stoc_opt.html">
+            
+                <a href="stoc_opt.html">
+            
+                    
+                    Stochastic Optimization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="PCA.html">
+            
+                <a href="PCA.html">
+            
+                    
+                    PCA and Clustering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="FA.html">
+            
+                <a href="FA.html">
+            
+                    
+                    Factor Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="GPCA.html">
+            
+                <a href="GPCA.html">
+            
+                    
+                    Generalized PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="PPCA.html">
+            
+                <a href="PPCA.html">
+            
+                    
+                    Probabilistic PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="morocco.html">
+            
+                <a href="morocco.html">
+            
+                    
+                    Morocco
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Probabilistic Graphic Models</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#probabilistic-graphic-models"><b> </b>Probabilistic Graphic Models</a></li><ul><li><span class="title-icon "></span><a href="#directed-graph"><b>1. </b>Directed Graph</a></li><ul><li><span class="title-icon "></span><a href="#parameterization"><b>1.1. </b>Parameterization</a></li><li><span class="title-icon "></span><a href="#conditional-independency"><b>1.2. </b>Conditional Independency</a></li><li><span class="title-icon "></span><a href="#characterization"><b>1.3. </b>Characterization</a></li></ul><li><span class="title-icon "></span><a href="#undirected-graph"><b>2. </b>Undirected Graph</a></li><ul><li><span class="title-icon "></span><a href="#parameterization_1"><b>2.1. </b>Parameterization</a></li><li><span class="title-icon "></span><a href="#conditional-independency_1"><b>2.2. </b>Conditional Independency</a></li><li><span class="title-icon "></span><a href="#characterization_1"><b>2.3. </b>Characterization</a></li></ul><li><span class="title-icon "></span><a href="#factor-graph"><b>3. </b>Factor Graph</a></li><ul><li><span class="title-icon "></span><a href="#parameterization_2"><b>3.1. </b>Parameterization</a></li><li><span class="title-icon "></span><a href="#relation-with-bn-and-mrf"><b>3.2. </b>Relation with BN and MRF</a></li></ul><li><span class="title-icon "></span><a href="#sum-product-algorithm"><b>4. </b>Sum-Product Algorithm</a></li><ul><li><span class="title-icon "></span><a href="#sum-product-on-a-tree"><b>4.1. </b>Sum-Product on a Tree</a></li><li><span class="title-icon "></span><a href="#sum-product-in-factor-tree-graph"><b>4.2. </b>Sum-Product in Factor Tree Graph</a></li><li><span class="title-icon "></span><a href="#sum-product-in-tree-like-graph"><b>4.3. </b>Sum-Product in Tree-like Graph</a></li><li><span class="title-icon "></span><a href="#sum-product-in-general-case"><b>4.4. </b>Sum-Product in General Case</a></li></ul><li><span class="title-icon "></span><a href="#max-product"><b>5. </b>Max-Product</a></li><li><span class="title-icon "></span><a href="#reference"><b>6. </b>Reference</a></li></ul></ul></div><a href="#probabilistic-graphic-models" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="probabilistic-graphic-models"><a name="probabilistic-graphic-models" class="anchor-navigation-ex-anchor" href="#probabilistic-graphic-models"><i class="fa fa-link" aria-hidden="true"></i></a> Probabilistic Graphic Models</h1>
+<p>A brief introduction of probabilistic graphic models, or more precisely, the skeleton of this topic.</p>
+<p>In high dimensional case, the full representation of joint distribution may be computationally inefficient for many tasks like marginal distribution and conditional distribution. Specifically, we can assume the variables have some structure and the joint distribution can be written as the product of a set of functions:</p>
+<p><script type="math/tex; mode=display">
+p(x_1, ..., x_n) = \prod_{i=1}^m f(x_C)
+</script></p>
+<p>We are using graph to represent one (or a class of) probability distribution(s). </p>
+<h2 id="directed-graph"><a name="directed-graph" class="anchor-navigation-ex-anchor" href="#directed-graph"><i class="fa fa-link" aria-hidden="true"></i></a>1. Directed Graph</h2>
+<h3 id="parameterization"><a name="parameterization" class="anchor-navigation-ex-anchor" href="#parameterization"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. Parameterization</h3>
+<p>Here we are talking about directed acyclic graph (DAG), a.k.a. Bayesian network in probabilistic graphic model. In DAG, we define </p>
+<p><script type="math/tex; mode=display">
+p(x_1, ..., x_n) = \prod_{i=1}^n f(x_i, x_{\pi_i})
+</script></p>
+<p>here $\pi_i$ represents the parents of $x_i$. We can show that <script type="math/tex; ">f(x_i, x_{\pi_i})</script> is in fact the conditional probability <script type="math/tex; ">p(x_i | x_{\pi_i})</script>, and</p>
+<p><script type="math/tex; mode=display">
+p(x_1, ..., x_n) = \prod_{i=1}^n p(x_i | x_{\pi_i})
+</script></p>
+<h3 id="conditional-independency"><a name="conditional-independency" class="anchor-navigation-ex-anchor" href="#conditional-independency"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. Conditional Independency</h3>
+<p>If we can define a way to find the conditional independences associsated with given DAG, then any probability distribution associated with this DAG must satisfy all the conditional independences given in graph. However, we never say anything about the independences of subsets of variables that are not represented in the graph. </p>
+<p>There are three kinds of three-canonical graphs. </p>
+<p><script type="math/tex; mode=display">
+1. \; X \rightarrow Y \rightarrow Z, \; 2. \;X \rightarrow Y \leftarrow Z, \; 3. \; X \leftarrow Y \rightarrow Z
+</script></p>
+<p>In 1 and 2, <script type="math/tex; ">X \perp Z | Y</script>, and in 3, although <script type="math/tex; ">X \perp Z</script> but they are conditional dependent given Y. </p>
+<p>Given three-canonical case, we can extend it to a graph search algorithm answering questions about conditional independence of any two variables given any subset of variables. This is known as <a href="http://pgm.stanford.edu/Algs/page-75.pdf" target="_blank">d-seperation algorithm</a>. The key idea behind this algorithm is that if you can find a path from A to B, then they are dependent, here the path may be blocked by the given variables (1 &amp; 2) or activated by them (3).</p>
+<h3 id="characterization"><a name="characterization" class="anchor-navigation-ex-anchor" href="#characterization"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. Characterization</h3>
+<p>For a given undirected graph, we define a family of distributions <script type="math/tex; ">\mathcal{U}_1</script> , by ranging over all possible choices of positive potential functions on the maximal cliques of the graph.</p>
+<p>We can also define another family of distributions <script type="math/tex; ">\mathcal{U}_2</script>, by gathering all the distributions that satisfies the conditional independence associated with the graph. It can be stated that these two families are equivalent.</p>
+<h2 id="undirected-graph"><a name="undirected-graph" class="anchor-navigation-ex-anchor" href="#undirected-graph"><i class="fa fa-link" aria-hidden="true"></i></a>2. Undirected Graph</h2>
+<h3 id="parameterization_1"><a name="parameterization_1" class="anchor-navigation-ex-anchor" href="#parameterization_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. Parameterization</h3>
+<p>Undirected graph is also known as <em>Markov Random Field</em>. We define </p>
+<p><script type="math/tex; mode=display">
+p(x_1, ..., x_n) = \frac{1}{Z} \prod_{i=1}^m \psi_{X_C}(x_C)
+</script></p>
+<p>where Z is the normalization constant. Note that each clique C consist of nodes that are fully connected, we call <script type="math/tex; ">\psi(\cdot)</script> as potential function. Usually, Cs are taken as the maximal clique.</p>
+<p>Since potential function must be nonnegative, we can remove this restriction by using exponential:</p>
+<p><script type="math/tex; mode=display">
+p(x) = \frac{1}{Z} \exp \left\{- \sum_{C \in \mathcal{C}} H_C(x_C) \right\}
+</script></p>
+<h3 id="conditional-independency_1"><a name="conditional-independency_1" class="anchor-navigation-ex-anchor" href="#conditional-independency_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. Conditional Independency</h3>
+<p>The conditional independence in undirected case is simply the naive graph-theoretic seperation.</p>
+<h3 id="characterization_1"><a name="characterization_1" class="anchor-navigation-ex-anchor" href="#characterization_1"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. Characterization</h3>
+<p>For a given undirected graph, we define a family of distributions <script type="math/tex; ">\mathcal{U}_1</script> , by ranging over all possible choices of positive potential functions on the maximal cliques of the graph.</p>
+<p>We can also define another family of distributions <script type="math/tex; ">\mathcal{U}_2</script>, by gathering all the distributions that satisfies the conditional independence associated with the graph. </p>
+<p>The <a href="https://en.wikipedia.org/wiki/Hammersley%E2%80%93Clifford_theorem" target="_blank">Hammersley-Clifford Theorem</a> states that these two families are equivalent.</p>
+<p><span style="color:red">Notice that in general we cannot transfer any directed model to undirected ones, or vice versa. </span></p>
+<h2 id="factor-graph"><a name="factor-graph" class="anchor-navigation-ex-anchor" href="#factor-graph"><i class="fa fa-link" aria-hidden="true"></i></a>3. Factor Graph</h2>
+<h3 id="parameterization_2"><a name="parameterization_2" class="anchor-navigation-ex-anchor" href="#parameterization_2"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. Parameterization</h3>
+<p>Consists of factors <script type="math/tex; ">f_s</script> and variables <script type="math/tex; ">x_i</script>. Factor nodes only connect to variable nodes and vice versa. The joint probability is defined as</p>
+<p><script type="math/tex; mode=display">
+p(x_1, ..., x_n) \propto \prod_{s=1}^S f_s(x_{C_s})
+</script></p>
+<p>Here <script type="math/tex; ">C_s</script> are all the neighbouring variable nodes of factor node <script type="math/tex; ">f_s</script>.</p>
+<h3 id="relation-with-bn-and-mrf"><a name="relation-with-bn-and-mrf" class="anchor-navigation-ex-anchor" href="#relation-with-bn-and-mrf"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. Relation with BN and MRF</h3>
+<p>We can convert any BN and MRF to factor graph. Details can be found in <a href="https://people.eecs.berkeley.edu/~jordan/prelims/chapter4.pdf" target="_blank">An Introdution to Probabilistic Graphical Models, Chapter 4</a>.</p>
+<h2 id="sum-product-algorithm"><a name="sum-product-algorithm" class="anchor-navigation-ex-anchor" href="#sum-product-algorithm"><i class="fa fa-link" aria-hidden="true"></i></a>4. Sum-Product Algorithm</h2>
+<p>We now care about marginalization, i.e.</p>
+<p><script type="math/tex; mode=display">
+p(x_1) = \sum_{x_2} \cdots \sum_{x_n} p(x_1, ..., x_n)
+</script></p>
+<p>Notice that any conditional probabiltity is also closely connected with marginalization</p>
+<p><script type="math/tex; mode=display">
+p(x_1 | x_E = \overline{x_E}) \propto \sum_{x_2} \cdots \sum_{x_n} p(x_1, ..., x_n) \delta(x_E, \overline{x_E})
+</script></p>
+<p>here <script type="math/tex; ">\delta(x_E, \overline{x_E})</script> is the impulse function whose support is a one-point set located at <script type="math/tex; ">\overline{x_E}</script>.</p>
+<h3 id="sum-product-on-a-tree"><a name="sum-product-on-a-tree" class="anchor-navigation-ex-anchor" href="#sum-product-on-a-tree"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. Sum-Product on a Tree</h3>
+<p>First notice that, we can ignore the directionality in DAG and treated them as undirected ones when doing marginalization. In a tree, the cliques only consist of one-node and two-node cliques. Therefore, </p>
+<p><script type="math/tex; mode=display">
+p(x) = \frac{1}{Z} \left(\prod_{i \in \mathcal{V}} \psi(x_i) \prod_{(i,j) \in \mathcal{E}} \psi(x_i, x_j)\right)
+</script></p>
+<p>on a tree with nodes <script type="math/tex; ">\mathcal{V}</script> and edges <script type="math/tex; ">\mathcal{E}</script>. Therefore, if we are trying to get <script type="math/tex; ">p(x_1)</script>, we can set <script type="math/tex; ">x_1</script> as the root, and eliminate from the leave. The idea is gained from the calculation order below:</p>
+<p><script type="math/tex; mode=display">
+p(x_1) = \sum_{x_2} \cdots \sum_{x_n} \frac{1}{Z} \left(\prod_{i \in \mathcal{V}} \psi(x_i) \prod_{(i,j) \in \mathcal{E}} \psi(x_i, x_j)\right) \propto \sum_{x_2} \psi(x_2) \psi(x_1, x_2) \sum_{x_3} \cdots \sum_{x_n} \psi(x_n) \psi(x_{n-1}, x_n)
+</script></p>
+<p>we can add impulse function <script type="math/tex; ">\delta(x_E, \overline{x_E})</script> such that <script type="math/tex; ">\psi(x_E)^E = \psi(x_E) \delta(x_E, \overline{x_E})</script> to obtain conditional probability.</p>
+<p>If we set a message pass protocal as: <strong>a node can send message to a neighbouring node when and only when it has received message from all of its other neighbours.</strong> Here the message denoted as the summation intermediate factor from its neightbouring nodes. </p>
+<p>In a tree graph, we simply send message from leaves to root and then send back from root to leaves, then we can get all the marginal distribution (any node can be seen as a root).</p>
+<p>The message is defined as</p>
+<p><script type="math/tex; mode=display">
+m_{ji}(x_i) = \sum_{x_j} \psi^E(x_j) \psi(x_i, x_j) \prod_{k \in \mathcal{N}_j \backslash i} m_{kj}(x_j)
+</script></p>
+<h3 id="sum-product-in-factor-tree-graph"><a name="sum-product-in-factor-tree-graph" class="anchor-navigation-ex-anchor" href="#sum-product-in-factor-tree-graph"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. Sum-Product in Factor Tree Graph</h3>
+<p>Just one note: the message send from factor nodes to variable nodes in converted factor tree graph is the same as the the message send from variable node to the corresponding variable node in the pre-converted undirected graph.</p>
+<h3 id="sum-product-in-tree-like-graph"><a name="sum-product-in-tree-like-graph" class="anchor-navigation-ex-anchor" href="#sum-product-in-tree-like-graph"><i class="fa fa-link" aria-hidden="true"></i></a>4.3. Sum-Product in Tree-like Graph</h3>
+<p>We can treat some clique as one single high-dimensional variable and use the tree sum-product algorithm.</p>
+<h3 id="sum-product-in-general-case"><a name="sum-product-in-general-case" class="anchor-navigation-ex-anchor" href="#sum-product-in-general-case"><i class="fa fa-link" aria-hidden="true"></i></a>4.4. Sum-Product in General Case</h3>
+<p>We can use the same protocal in general case and send mesaage again and again, it can be shown that in general sum-product does not converge to the true margin but:</p>
+<p><span style="color:red">
+A set of beliefs gives Sum-Product a fixed point in any graph G if and only if they are stationary points of the Bethe free energy.
+</span></p>
+<p>Details and Bethe free energy should be refered to <a href="https://github.com/joanbruna/ir18" target="_blank">Joan Bruna&apos;s Lecture Notes</a>.</p>
+<h2 id="max-product"><a name="max-product" class="anchor-navigation-ex-anchor" href="#max-product"><i class="fa fa-link" aria-hidden="true"></i></a>5. Max-Product</h2>
+<p>What happens if we want to maximize a posteriori (MAP) probability instead of marginalization.</p>
+<p><script type="math/tex; mode=display">
+\max p(x_F | x_{E})
+</script></p>
+<p>In fact, we can use the same algorithm, use max instead of sum. The logic behind this is that </p>
+<p><script type="math/tex; mode=display">
+a \cdot b + b \cdot c = a \cdot (b+c), \; \; \max (a \cdot b, b \cdot c) = a \cdot \max(b,c)
+</script></p>
+<p>since &quot;sum-product&quot; and &quot;max-product&quot; pair are examples of an algebraic structure known as &quot;commutative semiring&quot;.</p>
+<h2 id="reference"><a name="reference" class="anchor-navigation-ex-anchor" href="#reference"><i class="fa fa-link" aria-hidden="true"></i></a>6. Reference</h2>
+<ul>
+<li><p>See Michael I. Jordan <a href="https://people.eecs.berkeley.edu/~jordan/prelims/" target="_blank">An Introdution to Probabilistic Graphical Models</a>, Chapter 2, 3 &amp; 4.</p>
+</li>
+<li><p>Joan Bruna&apos;s <a href="https://github.com/joanbruna/ir18" target="_blank">DS-GA.1005 Inference and Representation Lecture Notes</a>, Lecture 2 &amp; 3.</p>
+</li>
+<li><p>See below Joan Bruna&apos;s DS-GA.1005 Inference and Representation Lecture Notes 3, from page 53 to page 77.</p>
+</li>
+</ul>
+<p><div class="pdf">
+                                
+                <div class="pdf__link"><a target="_blank" href="../assets/DS1005-lecture3.pdf">View PDF</a></div>
+                
+                                <object data="/assets/DS1005-lecture3.pdf" width="100%" height="850" type="application/pdf">
+                                    <embed src="/assets/DS1005-lecture3.pdf">
+                                        <p>
+                                            This browser does not support PDFs. <br>
+                                            Please download the PDF to view it: <a target="_blank" href="../assets/DS1005-lecture3.pdf">Download PDF</a>.
+                                        </p>
+                                    
+                                </object>
+                            </div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="EM.html" class="navigation navigation-prev " aria-label="Previous page: Expectation-maximization">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="inequality.html" class="navigation navigation-next " aria-label="Next page: Inequalities">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Probabilistic Graphic Models","level":"1.6.2","depth":2,"next":{"title":"Inequalities","level":"1.7","depth":1,"path":"contents/inequality.md","ref":"./contents/inequality.md","articles":[]},"previous":{"title":"Expectation-maximization","level":"1.6.1","depth":2,"path":"contents/EM.md","ref":"./contents/EM.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/PGM.md","mtime":"2018-11-09T03:13:17.589Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-09T03:13:30.917Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
