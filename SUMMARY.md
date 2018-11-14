@@ -3,6 +3,7 @@
 * [Introduction](README.md)
 * [Bayesian Statistics](./contents/bayes.md)
 	* [Variational Inference](./contents/VI.md)
+	* [Monte Carlo Sampling](./contents/MC.md)
 * [Causal Inference](./contents/causal.md)
 * [Computational Tricks](./contents/trick.md)
 * [General Deep Learning](./contents/DL.md)
