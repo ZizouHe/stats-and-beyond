@@ -29,7 +29,7 @@ Covering the topics below:
 
 9. Hybrid Monte-Carlo (PRML Chapter 10 and corresponding notes, [MCMC: Hamiltonian Monte Carlo](https://theclevermachine.wordpress.com/2012/11/18/mcmc-hamiltonian-monte-carlo-a-k-a-hybrid-monte-carlo/) and [R. M. Neal's paper](https://arxiv.org/pdf/1206.1901.pdf))
 
-	- <span style="color:red">Leapfrog method introduce numerical error due to the step size can not be as small as possible, thus using a Metropolis-like acceptance probability to ensure system Hamiltonian remains constant.</span>
+	- <span style="color:red">Leapfrog method introduces numerical error due to the fact that step size can not be as small as possible, thus we are using a Metropolis-like acceptance probability to ensure system Hamiltonian remains constant.</span>
 
 	- <span style="color:red">We sample momentum variable in the outer iteration so that the system energy will change, therefore we can arrive at an ergodic sampling scheme. Notice that sample from momentum will not change location variable x since they are independent.</span>
 
