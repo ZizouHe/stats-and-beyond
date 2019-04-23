@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>General Machine Learning · Statistics and Beyond</title>
+        <title>Sobolev Space · Statistics and Beyond</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -70,10 +70,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="expo.html" />
+    <link rel="next" href="RKHS.html" />
     
     
-    <link rel="prev" href="VAE.html" />
+    <link rel="prev" href="Func_Analy.html" />
     
 
     <style>
@@ -211,7 +211,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="sobolev.html">
+        <li class="chapter active" data-level="1.5.1" data-path="sobolev.html">
             
                 <a href="sobolev.html">
             
@@ -300,7 +300,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="ML.html">
+        <li class="chapter " data-level="1.7" data-path="ML.html">
             
                 <a href="ML.html">
             
@@ -639,7 +639,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >General Machine Learning</a>
+        <a href=".." >Sobolev Space</a>
     </h1>
 </div>
 
@@ -654,7 +654,64 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#general-machine-learning"><b> </b>General Machine Learning</a></li></ul></div><a href="#general-machine-learning" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="general-machine-learning"><a name="general-machine-learning" class="anchor-navigation-ex-anchor" href="#general-machine-learning"><i class="fa fa-link" aria-hidden="true"></i></a> General Machine Learning</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#sobolev-space"><b> </b>Sobolev Space</a></li><ul><li><span class="title-icon "></span><a href="#weak-partial-derivative"><b>1. </b>Weak Partial Derivative</a></li><li><span class="title-icon "></span><a href="#sobolev-space_1"><b>2. </b>Sobolev Space</a></li><li><span class="title-icon "></span><a href="#sobolev-embeddings"><b>3. </b>Sobolev Embeddings</a></li><li><span class="title-icon "></span><a href="#sobolev-embeddings-applications"><b>4. </b>Sobolev Embeddings Applications</a></li></ul></ul></div><a href="#sobolev-space" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="sobolev-space"><a name="sobolev-space" class="anchor-navigation-ex-anchor" href="#sobolev-space"><i class="fa fa-link" aria-hidden="true"></i></a> Sobolev Space</h1>
+<p>See more in</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Sobolev_space" target="_blank">Sobolev space - Wikipedia</a></li>
+<li><a href="https://github.com/ZizouHe/PDE/blob/master/Notes/PDE%20Notes.pdf" target="_blank">PDE notes page 38-39</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sobolev_inequality" target="_blank">Sobolev embedding theorem - Wikipedia</a></li>
+</ul>
+<h2 id="weak-partial-derivative"><a name="weak-partial-derivative" class="anchor-navigation-ex-anchor" href="#weak-partial-derivative"><i class="fa fa-link" aria-hidden="true"></i></a>1. Weak Partial Derivative</h2>
+<p>We first note that <script type="math/tex; ">\alpha = \left(\alpha_1, \ldots, \alpha_n\right)</script> is called <em>multi-index</em> of order $|\alpha| = \sum_{i=1}^{n} \alpha_i$ and we use the notition that</p>
+<p><script type="math/tex; mode=display">
+D^\alpha f = \frac{\partial^{|\alpha|} f}{\partial x_1^{\alpha_1} \ldots \partial x_n^{\alpha_n}}
+</script></p>
+<p>for <script type="math/tex; ">f =</script> in <script type="math/tex; ">\mathbb{R}^n</script>.</p>
+<p>Now we come to the definition of weak partial derivative. Given function <script type="math/tex; ">u, v \in \mathrm{L}^1_{\alpha}(\Omega)</script> on compact set <script type="math/tex; ">\Omega</script>, for all infinitely differentiable functions with compact support <script type="math/tex; ">\Omega</script>: <script type="math/tex; ">\varphi \in \mathcal{C}_0^\infty(\Omega)</script>, if</p>
+<p><script type="math/tex; mode=display">
+\int_{\Omega} v \varphi \mathrm{d} x=(-1)^{|\alpha|} \int_{\Omega} u D^{\alpha} \varphi \mathrm{d} x
+</script></p>
+<p>we call <script type="math/tex; ">v</script> the weak <script type="math/tex; ">|\alpha|</script>-th partial derivative of <script type="math/tex; ">u</script>, denote as <script type="math/tex; ">v = D^\alpha u</script>.</p>
+<h2 id="sobolev-space_1"><a name="sobolev-space_1" class="anchor-navigation-ex-anchor" href="#sobolev-space_1"><i class="fa fa-link" aria-hidden="true"></i></a>2. Sobolev Space</h2>
+<p>The Sobolev spaces <script type="math/tex; ">W^{k, p}(\Omega)</script> combine the concepts of weak differentiability and Lebesgue norms. In the one-dimensional case the Sobolev space <script type="math/tex; ">W^{k, p}(\mathbb{R}) \text { for } 1 \leqslant p \leqslant \infty</script> is defined as the subset of functions <script type="math/tex; ">f \text { in } L^{p}(\mathbb{R})</script> such that <script type="math/tex; ">f</script> and its weak derivatives up to order <script type="math/tex; ">k</script> have a finite <script type="math/tex; ">L^p</script> norm.</p>
+<p>With this definition, the Sobolev spaces admit a natural norm,</p>
+<p><script type="math/tex; mode=display">
+\|f\|_{k, p}=\left(\sum_{i=0}^{k}\left\|f^{(i)}\right\|_{p}^{p}\right)^{\frac{1}{p}}=\left(\sum_{i=0}^{k} \int\left|f^{(i)}(t)\right|^{p} d t\right)^{\frac{1}{p}}
+</script></p>
+<p>Equipped with the norm <script type="math/tex; ">\|\cdot\|_{k,p},W^{k,p}</script> becomes a Banach space. It turns out that it is enough to take only the first and last in the sequence, i.e., the norm defined by</p>
+<p><script type="math/tex; mode=display">
+\left\|f^{(k)}\right\|_{p}+\|f\|_{p}
+</script></p>
+<p>is equivalent to the norm above (i.e. the <em>induced topologies</em> of the norms are the same).</p>
+<h2 id="sobolev-embeddings"><a name="sobolev-embeddings" class="anchor-navigation-ex-anchor" href="#sobolev-embeddings"><i class="fa fa-link" aria-hidden="true"></i></a>3. Sobolev Embeddings</h2>
+<p>It is a natural question to ask if a Sobolev function is continuous or even continuously differentiable. Roughly speaking, sufficiently many weak derivatives or large p result in a classical derivative. This idea is generalized and made precise in the Sobolev embedding theorem.</p>
+<p>Let <script type="math/tex; ">W^{k,p}\left(\mathbf{R}^{n}\right)</script> denote the Sobolev space consisting of all real-valued functions on <script type="math/tex; ">\mathbf{R}^{n}</script> whose first <script type="math/tex; ">k</script> weak derivatives are functions in <script type="math/tex; ">L^{p} .</script> Here <script type="math/tex; ">k</script> is a non-negative integer and <script type="math/tex; ">1 \leq p<\infty .</script> The first part of the Sobolem states that if <script type="math/tex; ">k>\ell</script> and <script type="math/tex; ">1 \leq p<q<\infty</script> are two real numbers such that <script type="math/tex; ">(k-\ell) p<n</script> and:</p>
+<p><script type="math/tex; mode=display">
+\frac{1}{p}-\frac{k}{n}=\frac{1}{q}-\frac{\ell}{n}
+</script></p>
+<p>then</p>
+<p><script type="math/tex; mode=display">
+W^{k, p}\left(\mathbf{R}^{n}\right) \subseteq W^{\ell, q}\left(\mathbf{R}^{n}\right)
+</script></p>
+<h2 id="sobolev-embeddings-applications"><a name="sobolev-embeddings-applications" class="anchor-navigation-ex-anchor" href="#sobolev-embeddings-applications"><i class="fa fa-link" aria-hidden="true"></i></a>4. Sobolev Embeddings Applications</h2>
+<p>In the special case of <script type="math/tex; ">k=1</script> and <script type="math/tex; ">\ell=0,</script> Sobolev embedding gives</p>
+<p><script type="math/tex; mode=display">
+W^{1, p}\left(\mathbf{R}^{n}\right) \subseteq L^{p^{*}}\left(\mathbf{R}^{n}\right)
+</script></p>
+<p>where <script type="math/tex; ">p^{*}</script> is the Sobolev conjugate of <script type="math/tex; ">p,</script> given by</p>
+<p><script type="math/tex; mode=display">
+\frac{1}{p^{*}}=\frac{1}{p}-\frac{1}{n}
+</script></p>
+<p>This special case of the Sobolev embedding is a direct consequence of the Gagliardo&#x2013;Nirenberg&#x2013;Sobolev inequality.</p>
+<p>The second part of the Sobolev embedding theorem applies to embeddings in H&#xF6;lder spaces <script type="math/tex; ">C^{r, a}\left(\mathbf{R}^{n}\right)</script>. If <script type="math/tex; ">n<p</script> and</p>
+<p><script type="math/tex; mode=display">
+\frac{1}{p}-\frac{k}{n}=-\frac{r+\alpha}{n}
+</script></p>
+<p>with <script type="math/tex; ">\alpha \in(0,1]</script> then one has the embedding</p>
+<p><script type="math/tex; mode=display">
+W^{k, p}\left(\mathbf{R}^{n}\right) \subset C^{r, \alpha}\left(\mathbf{R}^{n}\right)
+</script></p>
+<p>This part of the Sobolev embedding is a direct consequence of Morrey&apos;s inequality. <strong>Intuitively, this inclusion expresses the fact that the existence of sufficiently many weak derivatives implies some continuity of the classical derivatives.</strong></p>
 
                                 
                                 </section>
@@ -682,12 +739,12 @@
 
             
                 
-                <a href="VAE.html" class="navigation navigation-prev " aria-label="Previous page: Variational Autoencoder">
+                <a href="Func_Analy.html" class="navigation navigation-prev " aria-label="Previous page: Functional Analysis">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="expo.html" class="navigation navigation-next " aria-label="Next page: Exponential Family">
+                <a href="RKHS.html" class="navigation navigation-next " aria-label="Next page: Reproducing Kernel Hilbert Space">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -698,7 +755,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"General Machine Learning","level":"1.7","depth":1,"next":{"title":"Exponential Family","level":"1.7.1","depth":2,"path":"contents/expo.md","ref":"./contents/expo.md","articles":[]},"previous":{"title":"Variational Autoencoder","level":"1.6.2","depth":2,"path":"contents/VAE.md","ref":"./contents/VAE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/ML.md","mtime":"2018-10-17T20:47:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-23T21:27:10.686Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Sobolev Space","level":"1.5.1","depth":2,"next":{"title":"Reproducing Kernel Hilbert Space","level":"1.5.2","depth":2,"path":"contents/RKHS.md","ref":"./contents/RKHS.md","articles":[]},"previous":{"title":"Functional Analysis","level":"1.5","depth":1,"path":"contents/Func_Analy.md","ref":"./contents/Func_Analy.md","articles":[{"title":"Sobolev Space","level":"1.5.1","depth":2,"path":"contents/sobolev.md","ref":"./contents/sobolev.md","articles":[]},{"title":"Reproducing Kernel Hilbert Space","level":"1.5.2","depth":2,"path":"contents/RKHS.md","ref":"./contents/RKHS.md","articles":[]},{"title":"Stein's Method","level":"1.5.3","depth":2,"path":"contents/steins.md","ref":"./contents/steins.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"Statistics-and-More","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/sobolev.md","mtime":"2019-04-16T20:51:27.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-23T21:27:10.686Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
