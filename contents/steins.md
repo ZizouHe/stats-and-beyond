@@ -18,6 +18,8 @@ $$
 \int_{x \in \mathcal{X}} \nabla_{x}(f(x) p(x)) \, \mathrm{d} x=0
 $$
 
+*Notice that the RBF kernel $$k\left(x, x^{\prime}\right)= \exp \left(-\frac{1}{2 h^{2}}\left\|x-x^{\prime}\right\|_{2}^{2}\right)$$ is in the Stein class for smooth densities supported on $$\mathcal{X}=\mathbb{R}^{d}$$.* 
+
 **Definition.**  The ***Stein’s operator*** of $$p$$ is a linear operator acting on the Stein class of $$p$$, defined as
 
 $$
