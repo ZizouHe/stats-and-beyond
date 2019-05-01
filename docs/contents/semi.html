@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Miscellaneous Topics · Statistics and Beyond</title>
+        <title>Semi-supervised Learning · Statistics and Beyond</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -70,10 +70,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cvx_analysis.html" />
+    <link rel="next" href="ML.html" />
     
     
-    <link rel="prev" href="other_matrix.html" />
+    <link rel="prev" href="VAE.html" />
     
 
     <style>
@@ -295,7 +295,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="semi.html">
+        <li class="chapter active" data-level="1.6.3" data-path="semi.html">
             
                 <a href="semi.html">
             
@@ -487,7 +487,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.11" data-path="miscell.html">
+        <li class="chapter " data-level="1.11" data-path="miscell.html">
             
                 <a href="miscell.html">
             
@@ -639,7 +639,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Miscellaneous Topics</a>
+        <a href=".." >Semi-supervised Learning</a>
     </h1>
 </div>
 
@@ -654,7 +654,48 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#miscellaneous-topics"><b> </b>Miscellaneous Topics</a></li></ul></div><a href="#miscellaneous-topics" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="miscellaneous-topics"><a name="miscellaneous-topics" class="anchor-navigation-ex-anchor" href="#miscellaneous-topics"><i class="fa fa-link" aria-hidden="true"></i></a> Miscellaneous Topics</h1>
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#semi-supervised-learning"><b> </b>Semi-supervised Learning</a></li><ul><li><span class="title-icon "></span><a href="#semi-supervised-learning-with-generative-models"><b>1. </b>Semi-supervised Learning with Generative Models</a></li><ul><li><span class="title-icon "></span><a href="#semi-supervised-learning-with-variational-autoencoder"><b>1.1. </b>Semi-supervised Learning with Variational Autoencoder</a></li></ul></ul></ul></div><a href="#semi-supervised-learning" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="semi-supervised-learning"><a name="semi-supervised-learning" class="anchor-navigation-ex-anchor" href="#semi-supervised-learning"><i class="fa fa-link" aria-hidden="true"></i></a> Semi-supervised Learning</h1>
+<p>Semi-supervised learning considers the problem (especially in classification) when only a small subset of the empirical data have labels. The question is: can we utilize the information in the unlabeled data to improve the classification. In recent year deep learning literatures, there are typically two ways to do semi-supervised learning: modification on generative models and few shot learning.</p>
+<h2 id="semi-supervised-learning-with-generative-models"><a name="semi-supervised-learning-with-generative-models" class="anchor-navigation-ex-anchor" href="#semi-supervised-learning-with-generative-models"><i class="fa fa-link" aria-hidden="true"></i></a>1. Semi-supervised Learning with Generative Models</h2>
+<h3 id="semi-supervised-learning-with-variational-autoencoder"><a name="semi-supervised-learning-with-variational-autoencoder" class="anchor-navigation-ex-anchor" href="#semi-supervised-learning-with-variational-autoencoder"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. Semi-supervised Learning with Variational Autoencoder</h3>
+<ul>
+<li><a href="http://papers.nips.cc/paper/5352-semi-supervised-learning-with-deep-generative-models.pdf" target="_blank">Kingma, D. P., Mohamed, S., Rezende, D. J., &amp; Welling, M. (2014). Semi-supervised learning with deep generative models. In Advances in neural information processing systems (pp. 3581-3589).</a></li>
+<li><a href="http://papers.nips.cc/paper/5947-semi-supervised-learning-with-ladder-networks.pdf" target="_blank">Rasmus, A., Berglund, M., Honkala, M., Valpola, H., &amp; Raiko, T. (2015). Semi-supervised learning with ladder networks. In Advances in neural information processing systems (pp. 3546-3554).</a></li>
+<li><a href="https://arxiv.org/pdf/1602.05473.pdf" target="_blank">Maal&#xF8;e, L., S&#xF8;nderby, C. K., S&#xF8;nderby, S. K., &amp; Winther, O. (2016). Auxiliary deep generative models. arXiv preprint arXiv:1602.05473.</a></li>
+</ul>
+<p>Variational autoencoder (VAE) considers the following generative process:</p>
+<p><script type="math/tex; mode=display">
+\boldsymbol{z} \sim \mathcal{N}(\boldsymbol{0}, I), \; \; p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z}) = f(\boldsymbol{x}; \boldsymbol{z}, \boldsymbol{\theta})
+</script></p>
+<p>where <script type="math/tex; ">f(\cdot)</script> can be modeled using a deep neural network. The inference model on the contrary, has the following form:</p>
+<p><script type="math/tex; mode=display">
+q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}) = \mathcal{N}\left(\boldsymbol{\mu}_{\boldsymbol{\phi}}(\boldsymbol{x}), \boldsymbol{\sigma}^2_{\boldsymbol{\phi}}(\boldsymbol{x})\right)
+</script></p>
+<p>Therefore, the evidence lower bound (ELBO) for the likelihood function is</p>
+<p><script type="math/tex; mode=display">
+\log p_{\boldsymbol{\theta}}(\boldsymbol{x}) \geq \mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]-K L\left[q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}) \| p_{\boldsymbol{\theta}}(\boldsymbol{z})\right]=-\mathcal{J}(\boldsymbol{x})
+</script></p>
+<p>Instead of optimize the likelihood function directly, we can optimize the lower bound of likelihood function. Notice that VAE can be seen as a combination of a encoder and a decoder, where <script type="math/tex; ">\mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]</script> is the reconstruction error for decoder and <script type="math/tex; ">K L\left[q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}) \| p_{\boldsymbol{\theta}}(\boldsymbol{z})\right]</script> the information compression quality for encoder.</p>
+<p>In Gaussian case, the KL term can be computed analytically. The log-likelihood term can not be solved analytically, but with re-parameterization trick, we can rewrite it as</p>
+<p><script type="math/tex; mode=display">
+\mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]=\mathbb{E}_{\mathcal{N}(\boldsymbol{\epsilon} | \boldsymbol{0}, \boldsymbol{I})}\left[\log p_{\boldsymbol{\theta}}\left(\boldsymbol{x} | \boldsymbol{\mu}_{\boldsymbol{\phi}}(\boldsymbol{x})+\boldsymbol{\sigma}_{\phi}(\boldsymbol{x}) \odot \boldsymbol{\epsilon}\right)\right]
+</script></p>
+<p>where <script type="math/tex; ">\odot</script> indicates the element-wise product. Therefore, the gradient can be expressed as</p>
+<p><script type="math/tex; mode=display">
+\nabla_{\{\boldsymbol{\theta}, \boldsymbol{\phi}\}} \mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]=\mathbb{E}_{\mathcal{N}(\boldsymbol{\epsilon} | \boldsymbol{0}, \boldsymbol{I})}\left[\nabla_{\{\boldsymbol{\theta}, \boldsymbol{\phi}\}} \log p_{\boldsymbol{\theta}}\left(\boldsymbol{x} | \boldsymbol{\mu}_{\boldsymbol{\phi}}(\boldsymbol{x})+\boldsymbol{\sigma}_{\boldsymbol{\phi}}(\boldsymbol{x}) \odot \boldsymbol{\epsilon}\right)\right]
+</script></p>
+<p>which can be evaluated analytically.</p>
+<p><strong>What can we do with VAE under semi-supervised settings</strong></p>
+<ul>
+<li><p>In semi-supervised learning, one way to combine the generative model is training a VAE using all the data (labeled <script type="math/tex; ">\{\boldsymbol{x}_i, y_i\} \triangleq \mathcal{D}_l</script> and unlabeled <script type="math/tex; ">\{\boldsymbol{x}_i, y_i\} \triangleq \mathcal{D}_u</script>) and then train a classifier with labels <script type="math/tex; ">y_i</script> from <script type="math/tex; ">\mathcal{D}_l</script> and latent representation of <script type="math/tex; ">\boldsymbol{x_i}</script> from inference model <script type="math/tex; ">q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})</script>.</p>
+</li>
+<li><p>One can modify the generative model to include class label <script type="math/tex; ">y</script>. We then need to consider two case: for <script type="math/tex; ">\mathcal{D}_l</script>, the ELBO is the same with the normal VAE, with <script type="math/tex; ">q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}, y)</script>; for <script type="math/tex; ">\mathcal{D}_u</script>, class label should be integrated out using <script type="math/tex; ">q_{\boldsymbol{\phi}}(y | \boldsymbol{x})</script> in ELBO. We can add a classification loss such that the distribution <script type="math/tex; ">q_{\boldsymbol{\phi}}(y | \boldsymbol{x})</script> also learns from labeled data.</p>
+</li>
+<li><p>In Kingma, et al. (2014), the above model has been combined therefore the latter one does not infer from features <script type="math/tex; ">\boldsymbol{x}</script> directly but from its latent representation <script type="math/tex; ">\boldsymbol{z}</script> from the previous VAE instead.</p>
+</li>
+<li><p>Other variations include a ladder structure (Rasmus, et al., 2015) where the encoding and decoding is happening on each layer, as well as auxiliary generative model where it adds a auxiliary variable to the model, which make the variational distribution (inference model) more expressive.</p>
+</li>
+</ul>
 
                                 
                                 </section>
@@ -682,12 +723,12 @@
 
             
                 
-                <a href="other_matrix.html" class="navigation navigation-prev " aria-label="Previous page: Other Topics in Matrix Analysis">
+                <a href="VAE.html" class="navigation navigation-prev " aria-label="Previous page: Variational Autoencoder">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cvx_analysis.html" class="navigation navigation-next " aria-label="Next page: Convex Analysis">
+                <a href="ML.html" class="navigation navigation-next " aria-label="Next page: General Machine Learning">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -698,7 +739,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Miscellaneous Topics","level":"1.11","depth":1,"next":{"title":"Convex Analysis","level":"1.11.1","depth":2,"path":"contents/cvx_analysis.md","ref":"./contents/cvx_analysis.md","articles":[]},"previous":{"title":"Other Topics in Matrix Analysis","level":"1.10.4","depth":2,"path":"contents/other_matrix.md","ref":"./contents/other_matrix.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"stats-and-beyond","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/miscell.md","mtime":"2018-11-03T00:28:50.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-01T21:11:52.584Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Semi-supervised Learning","level":"1.6.3","depth":2,"next":{"title":"General Machine Learning","level":"1.7","depth":1,"path":"contents/ML.md","ref":"./contents/ML.md","articles":[{"title":"Exponential Family","level":"1.7.1","depth":2,"path":"contents/expo.md","ref":"./contents/expo.md","articles":[]},{"title":"Expectation-maximization","level":"1.7.2","depth":2,"path":"contents/EM.md","ref":"./contents/EM.md","articles":[]},{"title":"Probabilistic Graphic Models","level":"1.7.3","depth":2,"path":"contents/PGM.md","ref":"./contents/PGM.md","articles":[]}]},"previous":{"title":"Variational Autoencoder","level":"1.6.2","depth":2,"path":"contents/VAE.md","ref":"./contents/VAE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"stats-and-beyond","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/semi.md","mtime":"2019-05-01T21:13:40.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-01T21:11:52.584Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

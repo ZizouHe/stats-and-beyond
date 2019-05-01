@@ -13,6 +13,7 @@
 * [General Deep Learning](./contents/DL.md)
 	* [Information Bottleneck](./contents/IB.md)
 	* [Variational Autoencoder](./contents/VAE.md)
+	* [Semi-supervised Learning](./contents/semi.md)
 * [General Machine Learning](./contents/ML.md)
 	* [Exponential Family](./contents/expo.md)
 	* [Expectation-maximization](./contents/EM.md)
@@ -33,4 +34,3 @@
 	* [Factor Analysis](./contents/FA.md)
 	* [Generalized PCA](./contents/GPCA.md)
 	* [Probabilistic PCA](./contents/PPCA.md)
-* [Morocco](./contents/morocco.md)
