@@ -1,0 +1,880 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Semi-supervised Learning · Statistics and Beyond</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ML.html" />
+    
+    
+    <link rel="prev" href="VAE.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ZizouHe","repo":"stats-and-beyond","type":"star","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="bayes.html">
+            
+                <a href="bayes.html">
+            
+                    
+                    Bayesian Statistics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="MC.html">
+            
+                <a href="MC.html">
+            
+                    
+                    Monte Carlo Sampling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="VI.html">
+            
+                <a href="VI.html">
+            
+                    
+                    Variational Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="causal.html">
+            
+                <a href="causal.html">
+            
+                    
+                    Causal Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="trick.html">
+            
+                <a href="trick.html">
+            
+                    
+                    Computational Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Func_Analy.html">
+            
+                <a href="Func_Analy.html">
+            
+                    
+                    Functional Analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="sobolev.html">
+            
+                <a href="sobolev.html">
+            
+                    
+                    Sobolev Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="RKHS.html">
+            
+                <a href="RKHS.html">
+            
+                    
+                    Reproducing Kernel Hilbert Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="steins.html">
+            
+                <a href="steins.html">
+            
+                    
+                    Stein's Method
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="DL.html">
+            
+                <a href="DL.html">
+            
+                    
+                    General Deep Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="IB.html">
+            
+                <a href="IB.html">
+            
+                    
+                    Information Bottleneck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="VAE.html">
+            
+                <a href="VAE.html">
+            
+                    
+                    Variational Autoencoder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="semi.html">
+            
+                <a href="semi.html">
+            
+                    
+                    Semi-supervised Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ML.html">
+            
+                <a href="ML.html">
+            
+                    
+                    General Machine Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="expo.html">
+            
+                <a href="expo.html">
+            
+                    
+                    Exponential Family
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="EM.html">
+            
+                <a href="EM.html">
+            
+                    
+                    Expectation-maximization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="PGM.html">
+            
+                <a href="PGM.html">
+            
+                    
+                    Probabilistic Graphic Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="inequality.html">
+            
+                <a href="inequality.html">
+            
+                    
+                    Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="linear.html">
+            
+                <a href="linear.html">
+            
+                    
+                    Linear Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="lasso.html">
+            
+                <a href="lasso.html">
+            
+                    
+                    Lasso
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="matrix.html">
+            
+                <a href="matrix.html">
+            
+                    
+                    Matrix and Related Numerical Analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="eigen_inequ.html">
+            
+                <a href="eigen_inequ.html">
+            
+                    
+                    Eigenvalue Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="norms.html">
+            
+                <a href="norms.html">
+            
+                    
+                    Norms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="power.html">
+            
+                <a href="power.html">
+            
+                    
+                    Power Iteration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="other_matrix.html">
+            
+                <a href="other_matrix.html">
+            
+                    
+                    Other Topics in Matrix Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="miscell.html">
+            
+                <a href="miscell.html">
+            
+                    
+                    Miscellaneous Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="cvx_analysis.html">
+            
+                <a href="cvx_analysis.html">
+            
+                    
+                    Convex Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="d-m-test.html">
+            
+                <a href="d-m-test.html">
+            
+                    
+                    Diebold-Mariano Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="n-w.html">
+            
+                <a href="n-w.html">
+            
+                    
+                    Newey-West Estimator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="wald.html">
+            
+                <a href="wald.html">
+            
+                    
+                    Wald Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="optimization.html">
+            
+                <a href="optimization.html">
+            
+                    
+                    Optimization Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="opt_tech.html">
+            
+                <a href="opt_tech.html">
+            
+                    
+                    Optimization Techniques
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="stoc_opt.html">
+            
+                <a href="stoc_opt.html">
+            
+                    
+                    Stochastic Optimization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="PCA.html">
+            
+                <a href="PCA.html">
+            
+                    
+                    PCA and Clustering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="FA.html">
+            
+                <a href="FA.html">
+            
+                    
+                    Factor Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="GPCA.html">
+            
+                <a href="GPCA.html">
+            
+                    
+                    Generalized PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="PPCA.html">
+            
+                <a href="PPCA.html">
+            
+                    
+                    Probabilistic PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Semi-supervised Learning</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#semi-supervised-learning"><b> </b>Semi-supervised Learning</a></li><ul><li><span class="title-icon "></span><a href="#semi-supervised-learning-with-variational-autoencoder"><b>1. </b>Semi-supervised Learning with Variational Autoencoder</a></li><li><span class="title-icon "></span><a href="#semi-supervised-learning-with-gans"><b>2. </b>Semi-supervised Learning with GANs</a></li></ul></ul></div><a href="#semi-supervised-learning" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="semi-supervised-learning"><a name="semi-supervised-learning" class="anchor-navigation-ex-anchor" href="#semi-supervised-learning"><i class="fa fa-link" aria-hidden="true"></i></a> Semi-supervised Learning</h1>
+<p>Semi-supervised learning considers the problem (especially in classification) when only a small subset of the empirical data have labels. The question is: can we utilize the information in the unlabeled data to improve the classification. In recent year deep learning literatures, there are typically two ways to do semi-supervised learning: modification on generative models and few shot learning.</p>
+<h2 id="semi-supervised-learning-with-variational-autoencoder"><a name="semi-supervised-learning-with-variational-autoencoder" class="anchor-navigation-ex-anchor" href="#semi-supervised-learning-with-variational-autoencoder"><i class="fa fa-link" aria-hidden="true"></i></a>1. Semi-supervised Learning with Variational Autoencoder</h2>
+<ul>
+<li><a href="http://papers.nips.cc/paper/5352-semi-supervised-learning-with-deep-generative-models.pdf" target="_blank">Kingma, D. P., Mohamed, S., Rezende, D. J., &amp; Welling, M. (2014). Semi-supervised learning with deep generative models. In Advances in neural information processing systems (pp. 3581-3589).</a></li>
+<li><a href="http://papers.nips.cc/paper/5947-semi-supervised-learning-with-ladder-networks.pdf" target="_blank">Rasmus, A., Berglund, M., Honkala, M., Valpola, H., &amp; Raiko, T. (2015). Semi-supervised learning with ladder networks. In Advances in neural information processing systems (pp. 3546-3554).</a></li>
+<li><a href="https://arxiv.org/pdf/1602.05473.pdf" target="_blank">Maal&#xF8;e, L., S&#xF8;nderby, C. K., S&#xF8;nderby, S. K., &amp; Winther, O. (2016). Auxiliary deep generative models. arXiv preprint arXiv:1602.05473.</a></li>
+</ul>
+<p>Variational autoencoder (VAE) considers the following generative process:</p>
+<p><script type="math/tex; mode=display">
+\boldsymbol{z} \sim \mathcal{N}(\boldsymbol{0}, I), \; \; p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z}) = f(\boldsymbol{x}; \boldsymbol{z}, \boldsymbol{\theta})
+</script></p>
+<p>where <script type="math/tex; ">f(\cdot)</script> can be modeled using a deep neural network. The inference model on the contrary, has the following form:</p>
+<p><script type="math/tex; mode=display">
+q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}) = \mathcal{N}\left(\boldsymbol{\mu}_{\boldsymbol{\phi}}(\boldsymbol{x}), \boldsymbol{\sigma}^2_{\boldsymbol{\phi}}(\boldsymbol{x})\right)
+</script></p>
+<p>Therefore, the evidence lower bound (ELBO) for the likelihood function is</p>
+<p><script type="math/tex; mode=display">
+\log p_{\boldsymbol{\theta}}(\boldsymbol{x}) \geq \mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]-K L\left[q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}) \| p_{\boldsymbol{\theta}}(\boldsymbol{z})\right]=-\mathcal{J}(\boldsymbol{x})
+</script></p>
+<p>Instead of optimize the likelihood function directly, we can optimize the lower bound of likelihood function. Notice that VAE can be seen as a combination of a encoder and a decoder, where <script type="math/tex; ">\mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]</script> is the reconstruction error for decoder and <script type="math/tex; ">K L\left[q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}) \| p_{\boldsymbol{\theta}}(\boldsymbol{z})\right]</script> the information compression quality for encoder.</p>
+<p>In Gaussian case, the KL term can be computed analytically. The log-likelihood term can not be solved analytically, but with re-parameterization trick, we can rewrite it as</p>
+<p><script type="math/tex; mode=display">
+\mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]=\mathbb{E}_{\mathcal{N}(\boldsymbol{\epsilon} | \boldsymbol{0}, \boldsymbol{I})}\left[\log p_{\boldsymbol{\theta}}\left(\boldsymbol{x} | \boldsymbol{\mu}_{\boldsymbol{\phi}}(\boldsymbol{x})+\boldsymbol{\sigma}_{\phi}(\boldsymbol{x}) \odot \boldsymbol{\epsilon}\right)\right]
+</script></p>
+<p>where <script type="math/tex; ">\odot</script> indicates the element-wise product. Therefore, the gradient can be expressed as</p>
+<p><script type="math/tex; mode=display">
+\nabla_{\{\boldsymbol{\theta}, \boldsymbol{\phi}\}} \mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})}\left[\log p_{\boldsymbol{\theta}}(\boldsymbol{x} | \boldsymbol{z})\right]=\mathbb{E}_{\mathcal{N}(\boldsymbol{\epsilon} | \boldsymbol{0}, \boldsymbol{I})}\left[\nabla_{\{\boldsymbol{\theta}, \boldsymbol{\phi}\}} \log p_{\boldsymbol{\theta}}\left(\boldsymbol{x} | \boldsymbol{\mu}_{\boldsymbol{\phi}}(\boldsymbol{x})+\boldsymbol{\sigma}_{\boldsymbol{\phi}}(\boldsymbol{x}) \odot \boldsymbol{\epsilon}\right)\right]
+</script></p>
+<p>which can be evaluated analytically.</p>
+<p><strong>What can we do with VAE under semi-supervised settings</strong></p>
+<ul>
+<li><p>In semi-supervised learning, one way to combine the generative model is training a VAE using all the data (labeled <script type="math/tex; ">\{\boldsymbol{x}_i, y_i\} \triangleq \mathcal{D}_l</script> and unlabeled <script type="math/tex; ">\{\boldsymbol{x}_i, y_i\} \triangleq \mathcal{D}_u</script>) and then train a classifier with labels <script type="math/tex; ">y_i</script> from <script type="math/tex; ">\mathcal{D}_l</script> and latent representation of <script type="math/tex; ">\boldsymbol{x_i}</script> from inference model <script type="math/tex; ">q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x})</script>.</p>
+</li>
+<li><p>One can modify the generative model to include class label <script type="math/tex; ">y</script>. We then need to consider two case: for <script type="math/tex; ">\mathcal{D}_l</script>, the ELBO is the same with the normal VAE, with <script type="math/tex; ">q_{\boldsymbol{\phi}}(\boldsymbol{z} | \boldsymbol{x}, y)</script>; for <script type="math/tex; ">\mathcal{D}_u</script>, class label should be integrated out using <script type="math/tex; ">q_{\boldsymbol{\phi}}(y | \boldsymbol{x})</script> in ELBO. We can add a classification loss such that the distribution <script type="math/tex; ">q_{\boldsymbol{\phi}}(y | \boldsymbol{x})</script> also learns from labeled data.</p>
+</li>
+<li><p>In Kingma, et al. (2014), the above model has been combined therefore the latter one does not infer from features <script type="math/tex; ">\boldsymbol{x}</script> directly but from its latent representation <script type="math/tex; ">\boldsymbol{z}</script> from the previous VAE instead.</p>
+</li>
+<li><p>Other variations include a ladder structure (Rasmus, et al., 2015) where the encoding and decoding is happening on each layer, as well as auxiliary generative model where it adds a auxiliary variable to the model, which make the variational distribution (inference model) more expressive.</p>
+</li>
+</ul>
+<h2 id="semi-supervised-learning-with-gans"><a name="semi-supervised-learning-with-gans" class="anchor-navigation-ex-anchor" href="#semi-supervised-learning-with-gans"><i class="fa fa-link" aria-hidden="true"></i></a>2. Semi-supervised Learning with GANs</h2>
+<ul>
+<li><a href="http://papers.nips.cc/paper/6125-improved-techniques-for-training-gans.pdf" target="_blank">Salimans, T., Goodfellow, I., Zaremba, W., Cheung, V., Radford, A., &amp; Chen, X. (2016). Improved techniques for training gans. In Advances in neural information processing systems (pp. 2234-2242).</a></li>
+<li><a href="https://arxiv.org/pdf/1606.01583.pdf" target="_blank">Odena, A. (2016). Semi-supervised learning with generative adversarial networks. arXiv preprint arXiv:1606.01583.</a></li>
+<li><a href="https://arxiv.org/pdf/1805.08957.pdf" target="_blank">Lecouat, B., Foo, C. S., Zenati, H., &amp; Chandrasekhar, V. R. (2018). Semi-supervised learning with gans: Revisiting manifold regularization. arXiv preprint arXiv:1805.08957.</a></li>
+</ul>
+<p>Generative adversarial networks (GANs) are a class of methods for learning generative models based on game theory. The goal of GANs is to train a generator network <script type="math/tex; ">G(z; \boldsymbol{\theta}(G))</script> that produces samples from the data distribution, <script type="math/tex; ">p_{\mathrm{data}}(x)</script>, by transforming vectors of noise <script type="math/tex; ">z</script> as <script type="math/tex; ">x = G(z; \boldsymbol{\theta}(G))</script>. The training signal for <script type="math/tex; ">G</script> is provided by a discriminator network <script type="math/tex; ">D(x)</script> that is trained to distinguish samples from the generator distribution <script type="math/tex; ">p_{\mathrm{model}}(x)</script> from real data. The generator network <script type="math/tex; ">G</script> in turn is then trained to fool the discriminator into accepting its outputs as being real.</p>
+<p>A typical loss function form for GAN is</p>
+<p><script type="math/tex; mode=display">
+\mathcal{L} = \mathbb{E}_{\boldsymbol{x} \sim p_{\mathrm{data}}(\boldsymbol{x})} \log D(\boldsymbol{x})+\mathbb{E}_{z \sim \operatorname{noise}} \log (1-D(G(\boldsymbol{z})))
+</script></p>
+<p>The simple way to combine GAN with semi-supervised learning is to turn the output size of discriminator from scaler to a <script type="math/tex; ">K+1</script>-dimension vector, where <script type="math/tex; ">K</script> responses to the class number <script type="math/tex; ">K</script>. The idea to do semi-supervised learning here is simply adding samples from the GAN generator <script type="math/tex; ">G</script> to our data set, labeling them with a new &#x201C;generated&#x201D; class <script type="math/tex; ">y = K + 1</script>. Therefore, we can define a corresponding loss function for this semi-supervised GAN as <script type="math/tex; ">\mathcal{L} = \mathcal{L}_{\mathrm { supervised }}+ \mathcal{L}_{\mathrm{ unsupervised }}</script> where</p>
+<p><script type="math/tex; mode=display">
+\begin{aligned}  \mathcal{L}_{\mathrm { supervised }} &=-\mathbb{E}_{\boldsymbol{x}, y \sim p_{\mathrm { data }}(\boldsymbol{x}, y)} \log p_{\mathrm { model }}\left(y \bigg| \boldsymbol{x}, y<K+1\right) \\
+ \mathcal{L}_{\mathrm { unsuperrised }} &=-\left\{\mathbb{E}_{\boldsymbol{x} \sim p_{\mathrm { data }}(\boldsymbol{x})} \log \left[1-p_{\mathrm { model }}\left(y=K+1 \bigg| \boldsymbol{x}\right)\right]+\mathbb{E}_{\boldsymbol{x} \sim G} \log \left[p_{\mathrm { model }}(y=K+1 \bigg| \boldsymbol{x})\right]\right\}
+\end{aligned}
+</script></p>
+<p><strong>Some training techniques is summarized below</strong></p>
+<p><strong>1. feature matching</strong>: Salimans et al. (2016) finds that feature matching loss for generator <script type="math/tex; ">G</script> works well empirically:</p>
+<p><script type="math/tex; mode=display">
+\left\| \mathbb{E}_{x \sim p_{\mathrm {data}} h(x)}-\mathbb{E}_{z \sim p_{z}}(z) h(g(z))\right\|_{1}
+</script></p>
+<p>where <script type="math/tex; ">h(\cdot)</script> denotes some activations on an intermediate layer of the discriminator.</p>
+<p><strong>2. manifold regularization</strong>: using Laplacian norm <script type="math/tex; ">\|f\|_{L}^{2}=\int_{x \in \mathcal{M}}\left\|\nabla_{\mathcal{M}} f(x)\right\|^{2} \mathrm{d} \mathcal{P}_{X}(x)</script> to encourage local invariance and hence smoothness of a classifier <script type="math/tex; ">f</script> on the data manifold <script type="math/tex; ">\mathcal{M}</script>. The Laplacian norm can be approximated and therefore, we introduce a regularization term in <script type="math/tex; ">\mathcal{L}_{\mathrm{ unsupervised }}</script></p>
+<p><script type="math/tex; mode=display">
+\begin{aligned}
+&-\left\{\mathbb{E}_{\boldsymbol{x} \sim p_{\mathrm { data }}(\boldsymbol{x})} \log \left[1-p_{\mathrm { model }}\left(y=K+1 \bigg| \boldsymbol{x}\right)\right]+\mathbb{E}_{\boldsymbol{x} \sim G} \log \left[p_{\mathrm { model }}(y=K+1 \bigg| \boldsymbol{x})\right]\right\} \\
+&+ \lambda \mathbb{E}_{z \sim \operatorname{noise}, \delta \sim \mathcal{N}(\boldsymbol{0},\boldsymbol{I}) )}\|f(G(z))-f(G(z+\epsilon \overline{\delta}))\|_{2}^{2}
+\end{aligned}
+</script></p>
+<p>where <script type="math/tex; ">\overline{\delta} = \frac{\delta}{\| \delta\|}</script>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="VAE.html" class="navigation navigation-prev " aria-label="Previous page: Variational Autoencoder">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ML.html" class="navigation navigation-next " aria-label="Next page: General Machine Learning">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Semi-supervised Learning","level":"1.6.3","depth":2,"next":{"title":"General Machine Learning","level":"1.7","depth":1,"path":"contents/ML.md","ref":"./contents/ML.md","articles":[{"title":"Exponential Family","level":"1.7.1","depth":2,"path":"contents/expo.md","ref":"./contents/expo.md","articles":[]},{"title":"Expectation-maximization","level":"1.7.2","depth":2,"path":"contents/EM.md","ref":"./contents/EM.md","articles":[]},{"title":"Probabilistic Graphic Models","level":"1.7.3","depth":2,"path":"contents/PGM.md","ref":"./contents/PGM.md","articles":[]}]},"previous":{"title":"Variational Autoencoder","level":"1.6.2","depth":2,"path":"contents/VAE.md","ref":"./contents/VAE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"stats-and-beyond","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/semi.md","mtime":"2019-10-05T05:28:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-10T03:11:44.061Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

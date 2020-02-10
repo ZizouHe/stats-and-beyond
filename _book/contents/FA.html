@@ -1,0 +1,886 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Factor Analysis · Statistics and Beyond</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="GPCA.html" />
+    
+    
+    <link rel="prev" href="PCA.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"ZizouHe","repo":"stats-and-beyond","type":"star","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="bayes.html">
+            
+                <a href="bayes.html">
+            
+                    
+                    Bayesian Statistics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="MC.html">
+            
+                <a href="MC.html">
+            
+                    
+                    Monte Carlo Sampling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="VI.html">
+            
+                <a href="VI.html">
+            
+                    
+                    Variational Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="causal.html">
+            
+                <a href="causal.html">
+            
+                    
+                    Causal Inference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="trick.html">
+            
+                <a href="trick.html">
+            
+                    
+                    Computational Tricks
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Func_Analy.html">
+            
+                <a href="Func_Analy.html">
+            
+                    
+                    Functional Analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="sobolev.html">
+            
+                <a href="sobolev.html">
+            
+                    
+                    Sobolev Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="RKHS.html">
+            
+                <a href="RKHS.html">
+            
+                    
+                    Reproducing Kernel Hilbert Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="steins.html">
+            
+                <a href="steins.html">
+            
+                    
+                    Stein's Method
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="DL.html">
+            
+                <a href="DL.html">
+            
+                    
+                    General Deep Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="IB.html">
+            
+                <a href="IB.html">
+            
+                    
+                    Information Bottleneck
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="VAE.html">
+            
+                <a href="VAE.html">
+            
+                    
+                    Variational Autoencoder
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="semi.html">
+            
+                <a href="semi.html">
+            
+                    
+                    Semi-supervised Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="ML.html">
+            
+                <a href="ML.html">
+            
+                    
+                    General Machine Learning
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="expo.html">
+            
+                <a href="expo.html">
+            
+                    
+                    Exponential Family
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="EM.html">
+            
+                <a href="EM.html">
+            
+                    
+                    Expectation-maximization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="PGM.html">
+            
+                <a href="PGM.html">
+            
+                    
+                    Probabilistic Graphic Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="inequality.html">
+            
+                <a href="inequality.html">
+            
+                    
+                    Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="linear.html">
+            
+                <a href="linear.html">
+            
+                    
+                    Linear Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="lasso.html">
+            
+                <a href="lasso.html">
+            
+                    
+                    Lasso
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="matrix.html">
+            
+                <a href="matrix.html">
+            
+                    
+                    Matrix and Related Numerical Analysis
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="eigen_inequ.html">
+            
+                <a href="eigen_inequ.html">
+            
+                    
+                    Eigenvalue Inequalities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="norms.html">
+            
+                <a href="norms.html">
+            
+                    
+                    Norms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="power.html">
+            
+                <a href="power.html">
+            
+                    
+                    Power Iteration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="other_matrix.html">
+            
+                <a href="other_matrix.html">
+            
+                    
+                    Other Topics in Matrix Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="miscell.html">
+            
+                <a href="miscell.html">
+            
+                    
+                    Miscellaneous Topics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="cvx_analysis.html">
+            
+                <a href="cvx_analysis.html">
+            
+                    
+                    Convex Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="d-m-test.html">
+            
+                <a href="d-m-test.html">
+            
+                    
+                    Diebold-Mariano Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="n-w.html">
+            
+                <a href="n-w.html">
+            
+                    
+                    Newey-West Estimator
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.4" data-path="wald.html">
+            
+                <a href="wald.html">
+            
+                    
+                    Wald Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="optimization.html">
+            
+                <a href="optimization.html">
+            
+                    
+                    Optimization Methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="opt_tech.html">
+            
+                <a href="opt_tech.html">
+            
+                    
+                    Optimization Techniques
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="stoc_opt.html">
+            
+                <a href="stoc_opt.html">
+            
+                    
+                    Stochastic Optimization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="PCA.html">
+            
+                <a href="PCA.html">
+            
+                    
+                    PCA and Clustering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.13.1" data-path="FA.html">
+            
+                <a href="FA.html">
+            
+                    
+                    Factor Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="GPCA.html">
+            
+                <a href="GPCA.html">
+            
+                    
+                    Generalized PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="PPCA.html">
+            
+                <a href="PPCA.html">
+            
+                    
+                    Probabilistic PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Factor Analysis</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#factor-analysis"><b> </b>Factor Analysis</a></li><ul><li><span class="title-icon "></span><a href="#model"><b>1. </b>Model</a></li><li><span class="title-icon "></span><a href="#covariance-matrix"><b>2. </b>Covariance Matrix</a></li><li><span class="title-icon "></span><a href="#methods-of-estimation"><b>3. </b>Methods of Estimation</a></li><ul><li><span class="title-icon "></span><a href="#pca"><b>3.1. </b>PCA</a></li><li><span class="title-icon "></span><a href="#maximum-likelihood-method"><b>3.2. </b>Maximum Likelihood Method</a></li></ul><li><span class="title-icon "></span><a href="#factor-rotation"><b>4. </b>Factor Rotation</a></li><li><span class="title-icon "></span><a href="#reference"><b>5. </b>Reference</a></li></ul></ul></div><a href="#factor-analysis" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="factor-analysis"><a name="factor-analysis" class="anchor-navigation-ex-anchor" href="#factor-analysis"><i class="fa fa-link" aria-hidden="true"></i></a> Factor Analysis</h1>
+<h2 id="model"><a name="model" class="anchor-navigation-ex-anchor" href="#model"><i class="fa fa-link" aria-hidden="true"></i></a>1. Model</h2>
+<p><script type="math/tex; ">X \in \mathbb{R}^p</script> is linearly dependent upon a few common factors and specific factors, with</p>
+<p><script type="math/tex; mode=display">
+X - \mu = L F + \epsilon
+</script></p>
+<p>where <script type="math/tex; ">L \in \mathbb{R}^{p \times m}</script> the <em>factor loading</em>, <script type="math/tex; ">F \in \mathbb{R}^{m \times 1}, m < p</script> the <em>factor (common factor)</em>, and <script type="math/tex; ">\epsilon \in \mathbb{R}^{p \times 1}</script> the <em>noise (specific factor)</em>.</p>
+<p>note that the representation is not unique, since</p>
+<p><script type="math/tex; mode=display">
+X - \mu = (LT) (T'F) + \epsilon, \; \; T T^T = I
+</script></p>
+<p>There are some assumptions: factors are independent as well as noise</p>
+<p><script type="math/tex; mode=display">
+\mathbb{E}(F) = 0, \quad \mathrm{Cov}(F) = I
+</script></p>
+<p><script type="math/tex; mode=display">
+\mathbb{E}(\epsilon) = 0, \quad \mathrm{Cov}(\epsilon) = \Psi = \mathrm{diag}(\psi_1, ..., \psi_p)
+</script></p>
+<p>and </p>
+<p><script type="math/tex; mode=display">
+\mathrm{Cov}(\epsilon, F) = \boldsymbol{0}
+</script></p>
+<h2 id="covariance-matrix"><a name="covariance-matrix" class="anchor-navigation-ex-anchor" href="#covariance-matrix"><i class="fa fa-link" aria-hidden="true"></i></a>2. Covariance Matrix</h2>
+<p>Total covariance matrix is</p>
+<p><script type="math/tex; mode=display">
+\Sigma = L L^T + \Psi
+</script></p>
+<p>and variance can be decomposited into two parts: communality and specific variance</p>
+<p><script type="math/tex; mode=display">
+\sigma_{ii} = l_{i1}^2 + \cdots + l_{im}^2 + \psi_i \triangleq h_i^2 + \psi_i
+</script></p>
+<p>Notice that communality is not affected by <script type="math/tex; ">T</script>.</p>
+<h2 id="methods-of-estimation"><a name="methods-of-estimation" class="anchor-navigation-ex-anchor" href="#methods-of-estimation"><i class="fa fa-link" aria-hidden="true"></i></a>3. Methods of Estimation</h2>
+<h3 id="pca"><a name="pca" class="anchor-navigation-ex-anchor" href="#pca"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. PCA</h3>
+<ol>
+<li><p>Initial <script type="math/tex; ">\tilde{\Psi}</script></p>
+</li>
+<li><p>Find <script type="math/tex; ">L</script>, the largest <script type="math/tex; ">m</script> eigenvectors of the eigen decomposition of <script type="math/tex; ">\hat{\Sigma} - \tilde{\Psi}</script></p>
+</li>
+<li><p>Update <script type="math/tex; ">\tilde{\Psi} = \mathrm{diag}(\hat{\Sigma} - L L^T)</script></p>
+</li>
+<li><p>Repeat...</p>
+</li>
+</ol>
+<h3 id="maximum-likelihood-method"><a name="maximum-likelihood-method" class="anchor-navigation-ex-anchor" href="#maximum-likelihood-method"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. Maximum Likelihood Method</h3>
+<p>Assumption: the common factors and the specific factors are jointly normally distributed.</p>
+<p>It is not well defined because of multiplicity of choices of L, we can impose computationally convenient uniqueness condition:</p>
+<p><script type="math/tex; mode=display">
+L^T \Psi^{-1} L = \Phi, \; \; \Phi \;\; \text{is diagonal matrix}
+</script></p>
+<h2 id="factor-rotation"><a name="factor-rotation" class="anchor-navigation-ex-anchor" href="#factor-rotation"><i class="fa fa-link" aria-hidden="true"></i></a>4. Factor Rotation</h2>
+<p>We have different choice of <script type="math/tex; ">T</script>. Ideally, we should like to see a pattern of loadings such that each variable loads highly on a single factor and has small to moderate loadings on the remaining factors.</p>
+<p>We here introduce <em>Varimax Criterion</em>, Varimax procedure selects the orthogonal transformation <script type="math/tex; ">T</script> that maximizes</p>
+<p><script type="math/tex; mode=display">
+V = \frac{1}{p} \sum_{j=1}^m \left\{\sum_{i=1}^p \tilde{l}_{ij}^4 - \frac{1}{p}\left[\sum_{i=1}^p \tilde{l}_{ij}^2\right]^2\right\}
+</script></p>
+<h2 id="reference"><a name="reference" class="anchor-navigation-ex-anchor" href="#reference"><i class="fa fa-link" aria-hidden="true"></i></a>5. Reference</h2>
+<ul>
+<li><p><a href="http://cs229.stanford.edu/notes/cs229-notes9.pdf" target="_blank">Andrew Ng&apos;s Lecture Notes on Factor Analysis</a>.</p>
+</li>
+<li><p>Chapter 9 of Johnson &amp; Wichern, Applied Multivariate Statistical Analysis, 6th edition. </p>
+</li>
+<li><p>See below Lin Hou&apos;s lecture notes (<em>Tsinghua, Multivariate Statistical Analysis</em>) on Factor analysis.</p>
+</li>
+</ul>
+<p><div class="pdf">
+                                
+                <div class="pdf__link"><a target="_blank" href="../assets/Factor%20Analysis_Tsinghua.pdf">View PDF</a></div>
+                
+                                <object data="/assets/Factor Analysis_Tsinghua.pdf" width="100%" height="850" type="application/pdf">
+                                    <embed src="/assets/Factor Analysis_Tsinghua.pdf">
+                                        <p>
+                                            This browser does not support PDFs. <br>
+                                            Please download the PDF to view it: <a target="_blank" href="../assets/Factor%20Analysis_Tsinghua.pdf">Download PDF</a>.
+                                        </p>
+                                    
+                                </object>
+                            </div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="PCA.html" class="navigation navigation-prev " aria-label="Previous page: PCA and Clustering">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="GPCA.html" class="navigation navigation-next " aria-label="Next page: Generalized PCA">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Factor Analysis","level":"1.13.1","depth":2,"next":{"title":"Generalized PCA","level":"1.13.2","depth":2,"path":"contents/GPCA.md","ref":"./contents/GPCA.md","articles":[]},"previous":{"title":"PCA and Clustering","level":"1.13","depth":1,"path":"contents/PCA.md","ref":"./contents/PCA.md","articles":[{"title":"Factor Analysis","level":"1.13.1","depth":2,"path":"contents/FA.md","ref":"./contents/FA.md","articles":[]},{"title":"Generalized PCA","level":"1.13.2","depth":2,"path":"contents/GPCA.md","ref":"./contents/GPCA.md","articles":[]},{"title":"Probabilistic PCA","level":"1.13.3","depth":2,"path":"contents/PPCA.md","ref":"./contents/PPCA.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["mathjax","image-captions","github","anchors","anchor-navigation-ex","-sharing","sharing-plus@^0.0.2","github-buttons","embed-pdf","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"github":{"url":"https://github.com/ZizouHe/"},"livereload":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"fa fa-hand-o-right","level2Icon":"fa fa-hand-o-right","level3Icon":"fa fa-hand-o-right","showLevelIcon":false},"mode":"float","multipleH1":false,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"ZizouHe","repo":"stats-and-beyond","type":"star","size":"small"}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"sharing":{"qq":true,"all":["facebook","google","twitter","weibo","qq","linkedin"],"douban":false,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{},"embed-pdf":{},"image-captions":{"caption":"Figure _PAGE_IMAGE_NUMBER_. _CAPTION_","align":"right","variable_name":"_pictures"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[]},"title":"Statistics and Beyond","gitbook":"*"},"file":{"path":"contents/FA.md","mtime":"2019-10-05T06:51:35.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-10T03:11:44.061Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
